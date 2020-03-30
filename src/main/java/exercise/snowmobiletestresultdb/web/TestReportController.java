@@ -15,7 +15,7 @@ public class TestReportController {
 	
 	@RequestMapping("/all_testreports")
 	public String showAllTestReports(Model model) {
-		model.addAttribute("testreportlist", trRepo.findAll());
+		model.addAttribute("get_all", trRepo.findAll());
 		return "all_testreports";
 	}
 }

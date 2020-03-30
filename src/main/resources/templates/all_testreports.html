@@ -20,7 +20,7 @@
 			<th>Person</th>
 			<th>Report</th>
 		</tr>		
-		<tr th:each = "report: ${testreportlist}">
+		<tr th:each = "report: ${get_all}">
 			<td th:text = "${report.vehicle}" />
 			<td th:text = "${report.testtype}" />
 			<td th:text = "${report.time}" />
