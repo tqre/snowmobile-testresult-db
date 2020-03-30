@@ -23,9 +23,9 @@ public class SnowmobileTestresultDbApplication {
 			
 			// Constructor:
 			TestReport tr1 = new TestReport(
-					"Lupus", "Test", "Today", "Someone", "todo");
+					"Lupus", "Test", "Today", "Someone", "VIEW BUTTON");
 			TestReport tr2 = new TestReport(
-					"Sciurus", "Test", "Today", "Someone", "todo");
+					"Sciurus", "Test", "Today", "Someone", "VIEW BUTTON");
 			trRepo.save(tr1);
 			trRepo.save(tr2);
 		};
