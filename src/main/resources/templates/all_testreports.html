@@ -12,6 +12,22 @@
 
 <body>
 	<h1>All test reports</h1>
+	<table>
+		<tr>
+			<th>Vehicle</th>
+			<th>Test type</th>
+			<th>Time</th>
+			<th>Person</th>
+			<th>Report</th>
+		</tr>		
+		<tr th:each = "report: ${testreportlist}">
+			<td th:text = "${report.vehicle}" />
+			<td th:text = "${report.testtype}" />
+			<td th:text = "${report.time}" />
+			<td th:text = "${report.person}" />
+			<td th:text = "${report.report}" />
+		</tr>
+	</table>
 </body>
 
 </html>
