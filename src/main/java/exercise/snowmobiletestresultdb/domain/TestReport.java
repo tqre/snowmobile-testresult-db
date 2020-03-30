@@ -15,7 +15,7 @@ public class TestReport {
 	private String vehicle; // TODO: vehicle class
 	private String testtype;
 	private String time; // object?
-	private String person; // TODO: person class
+	private String person; // TODO: user class implement here
 	private String report;
 	
 	public TestReport () {}
