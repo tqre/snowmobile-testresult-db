@@ -29,7 +29,6 @@ public class TestReport {
 	}
 	
 	public TestReport(Long id, String vehicle, String testtype, String time, String person, String report) {
-		super();
 		this.id = id;
 		this.vehicle = vehicle;
 		this.testtype = testtype;
