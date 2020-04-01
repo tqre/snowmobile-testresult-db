@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<!-- 
+	<meta charset="UTF-8"> 
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
-	-->
-	<title>Index page</title>
-	
+	<title>Index page</title>	
 </head>
 
 <body>
-	<h1>Index page</h1>
+	<h1 th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]!</h1>
+	<button class="btn btn-info" onclick="location.href='/all_testreports'" type="button">
+	All test reports
+	</button>
 </body>
 
 </html>
