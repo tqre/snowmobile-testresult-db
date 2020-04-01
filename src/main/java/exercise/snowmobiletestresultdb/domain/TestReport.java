@@ -21,7 +21,6 @@ public class TestReport {
 	public TestReport () {}
 	
 	public TestReport(String vehicle, String testtype, String time, String person, String report) {
-		this.id = null;
 		this.vehicle = vehicle;
 		this.testtype = testtype;
 		this.time = time;

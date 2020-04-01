@@ -29,8 +29,11 @@ public class SnowmobileTestresultDbApplication {
 					"Lupus", "Test", "Today", "Someone", "VIEW BUTTON");
 			TestReport tr2 = new TestReport(
 					"Sciurus", "Test", "Today", "Someone", "VIEW BUTTON");
+			TestReport tr3 = new TestReport(
+					"Mephitis", "Test", "Today", "Someone", "VIEW BUTTON");
 			trRepo.save(tr1);
 			trRepo.save(tr2);
+			trRepo.save(tr3);
 			
 			// Users
 			User u1 = new User("admin", "ADMIN",
