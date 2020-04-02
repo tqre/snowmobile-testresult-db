@@ -3,40 +3,37 @@
 	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <div th:fragment="navbar">
+<nav class="nav nav-tabs mr-auto">
 <ul class="nav nav-tabs">
    	<li class="nav-item">
-   		<a class="nav-link active" href="#">Active</a>
+   		<a class="nav-link active" href="#">Test reports</a>
    	</li>
    	
    	<li class="nav-item">
-   		<a class="nav-link" href="#">Link</a>
+   		<a class="nav-link" href="#">Snowmobiles</a>
    	</li>
    	
    	<li class="nav-item">
-   		<a class="nav-link" href="#">Link</a>
+   		<a class="nav-link" href="#">Users</a>
    	</li>
     	
-   	<li class="nav-item">
-   	<a class="nav-link disabled" href="#">Disabled</a>
-   	</li>
- 	
-   	<li class="nav-item navbar-right" sec:authorize="isAuthenticated()" th:inline="text">
+</ul>
+<ul class="nav nav-tabs ml-auto">	
+   	<li class="nav-text" sec:authorize="isAuthenticated()" th:inline="text">
    	[[${#httpServletRequest.remoteUser}]]
    	</li>
-   	<li class="nav-item navbar-right" sec:authorize="isAuthenticated()">
+   	<li class="nav-item" sec:authorize="isAuthenticated()">
+   		<form>
+    	<input type="submit" value="My account" />
+    	</form>
+    </li>     
+   	<li class="nav-item" sec:authorize="isAuthenticated()">
    		<form th:action="@{/logout}" method="post">
     	<input type="submit" value="Sign out" />
     	</form>
-    </li>
-    <!-- 
-    <li class="nav-item" sec:authorize="#{isAuthenticated()}">
-   		<form th:action="@{/logout}" method="post">
-    	<input type="submit" value="Sign out" />
-    	</form>
-    </li>
-    -->
-    
+    </li>    
 </ul>
+</nav>
 </div>
 
 </html>
