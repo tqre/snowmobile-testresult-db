@@ -8,14 +8,7 @@
 </head>
 
 <body>
-	<!-- Nav bar. This would be nice to show on all pages, and would be 
-	different according to user. -->
-	<ul class="nav nav-tabs">
-    	<li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
-    	<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-    	<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-    	<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
-    </ul>
+	<div th:replace="fragments/header :: header"></div>
 	
 
 	<h1 th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]!</h1>
