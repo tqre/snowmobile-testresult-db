@@ -2,11 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="navbar">
-	<ul class="nav nav-tabs">
-    	<li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
-    	<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-    	<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-    	<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
-    </ul>
+<ul class="nav nav-tabs">
+   	<li class="nav-item">
+   		<a class="nav-link active" href="#">Active</a>
+   	</li>
+   	
+   	<li class="nav-item">
+   		<a class="nav-link" href="#">Link</a>
+   	</li>
+   	
+   	<li class="nav-item">
+   		<a class="nav-link" href="#">Link</a>
+   	</li>
+    	
+   	<li class="nav-item">
+   	<a class="nav-link disabled" href="#">Disabled</a>
+   	</li>
+</ul>
+<!-- TODO: make this section appear in right side... -->
+<ul class="nav navbar-nav navbar-right">   	
+   	<li class="nav-item" th:inline="text">
+   	[[${#httpServletRequest.remoteUser}]]
+   	</li>
+   	<!-- TODO: this has some problems now, controller is not clear?
+   	<li class="nav-item">
+   		<form th:action="@{/logout}" method="post">
+    	<input type="submit" value="Sign out" />
+    	</form>
+    </li>
+    -->
+</ul>
 </div>
+
 </html>

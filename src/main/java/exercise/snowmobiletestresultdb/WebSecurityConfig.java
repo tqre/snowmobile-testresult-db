@@ -30,6 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests().antMatchers("/css/**").permitAll().and()
 		.authorizeRequests().anyRequest().authenticated().and()
-		.formLogin().loginPage("/login").permitAll();
+		.formLogin()
+			.loginPage("/login").permitAll()
+			.defaultSuccessUrl("/").and()
+		.logout()
+			.invalidateHttpSession(true)
+			.deleteCookies("JSESSIONID");
 	}
 }
