@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
+	<title>Show all test reports</title>	
+</head>
+
+<body>
+	<div th:replace="fragments :: navbar"></div>
+	<h1>All users: ADMIN ONLY!</h1>
+	<table sec:authorize="hasAuthority('ADMIN')" class="table table-striped">
+		<tr>
+			<th>Username</th>
+			<th>Role</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Address</th>
+			<th>Telephone</th>
+			<th>Email</th>
+			<th>Hashed password<th>
+		</tr>		
+		<tr th:each = "user: ${get_all}">
+			<td th:text = "${user.username}" />
+			<td th:text = "${user.role}" />
+			<td th:text = "${user.firstname}" />
+			<td th:text = "${user.lastname}" />
+			<td th:text = "${user.address} /">
+			<td th:text = "${user.telephone}" />
+			<td th:text = "${user.email}" />
+			<td th:text = "${user.pwdHash}" />
+			</tr>
+	</table>
+</body>
+
+</html>

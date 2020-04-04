@@ -14,7 +14,7 @@
    	</li>
    	
    	<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-   		<a class="nav-link" href="#">Users</a>
+   		<a class="nav-link" th:href="@{/all_users}">Users</a>
    	</li>
     	
 </ul>
