@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
+	<title>Show all snow traversing vehicles</title>	
+</head>
+
+<body>
+	<div th:replace="fragments :: navbar"></div>
+	<h1>All snowmobiles</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>Model</th>
+			<th>Year</th>
+			<th>Track width(mm)</th>
+			<th>Track length(mm)</th>
+			<th>Tests</th>
+		</tr>		
+		<tr th:each = "snowmobile: ${get_all}">
+			<td th:text = "${snowmobile.model}" />
+			<td th:text = "${snowmobile.year}" />
+			<td th:text = "${snowmobile.trackWidth}" />
+			<td th:text = "${snowmobile.trackLength}" />
+			<td th:text = "${snowmobile.tests}" />
+		</tr>
+	</table>
+</body>
+
+</html>

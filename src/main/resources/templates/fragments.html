@@ -4,23 +4,23 @@
 
 <div th:fragment="navbar">
 <nav class="nav nav-tabs mr-auto">
+<!-- Navbar left side: tabs for different views -->
 <ul class="nav nav-tabs">
    	<li class="nav-item">
    		<a class="nav-link" th:href="@{/all_testreports}">Test reports</a>
-   	</li>
-   	
+   	</li>   	
    	<li class="nav-item">
-   		<a class="nav-link" href="#">Snowmobiles</a>
-   	</li>
-   	
+   		<a class="nav-link" th:href="@{/all_snowmobiles}">Snowmobiles</a>
+   	</li>   	
    	<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
    		<a class="nav-link" th:href="@{/all_users}">Users</a>
    	</li>
     	
 </ul>
+<!-- Navbar right side: username, my account button, sign out button -->
 <ul class="nav nav-tabs ml-auto">	
    	<li class="nav-text" sec:authorize="isAuthenticated()" th:inline="text">
-   	[[${#httpServletRequest.remoteUser}]]
+   	<h3 style="margin-right: 10px">[[${#httpServletRequest.remoteUser}]]</h3>
    	</li>
    	<li class="nav-item" sec:authorize="isAuthenticated()">
    		<form>

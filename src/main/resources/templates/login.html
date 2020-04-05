@@ -7,7 +7,9 @@
 	
 </head>
 <body>
+	<!-- TODO: put some text to navbar (unauthenticated view) -->
 	<div th:replace="fragments :: navbar"></div>
+	
 	<h2>Test reporting login page</h2>
 	<form th:action="@{/login}" method="post">
 		<label>Username: <input type="text" name="username"/></label>
