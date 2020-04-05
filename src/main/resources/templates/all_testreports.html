@@ -13,14 +13,14 @@
 	<h1>All test reports</h1>
 	<table class="table table-striped">
 		<tr>
-			<th>Vehicle</th>
+			<th>Snowmobile</th>
 			<th>Test type</th>
 			<th>Time</th>
 			<th>Person</th>
 			<th>Report</th>
 		</tr>		
 		<tr th:each = "report: ${get_all}">
-			<td th:text = "${report.vehicle}" />
+			<td th:text = "${report.snowMobile.model}" />
 			<td th:text = "${report.testtype}" />
 			<td th:text = "${report.time}" />
 			<td th:text = "${report.person}" />

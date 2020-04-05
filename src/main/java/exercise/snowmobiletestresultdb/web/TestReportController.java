@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
 import exercise.snowmobiletestresultdb.domain.TestReport;
 import exercise.snowmobiletestresultdb.domain.TestReportRepository;
 
@@ -13,6 +14,9 @@ public class TestReportController {
 
 	@Autowired
 	private TestReportRepository trRepo;
+	
+	@Autowired
+	private SnowMobileRepository smRepo;
 	
 	@RequestMapping("/all_testreports")
 	public String showAllTestReports(Model model) {
@@ -23,6 +27,7 @@ public class TestReportController {
 	@RequestMapping("/add_testreport")
 	public String addTestReport(Model model) {
 		model.addAttribute("testreport", new TestReport());
+		model.addAttribute("all_snowmobiles", smRepo.findAll());
 		return "add_testreport";
 	}	
 	@RequestMapping("/save_testreport")

@@ -21,9 +21,13 @@
 		<input type="text" th:field="*{time}"/>
 		<br>
 		<label for="snowmobile">Snowmobile:</label>
-		<!-- Dropdown list for the vehicles -->
-		<input type="text" th:field="*{vehicle}"/>
-		<br>
+		<!-- TODO: SOME ERROR ON THE NEXT LINE HERE!!! -->
+		<select th:field="${testreport.snowMobile}">
+			<option th:each="sm: ${all_snowmobiles}"
+					th:value="${sm.id}"
+					th:text="${sm.model}">
+			</option>
+		</select>
 		<!-- Make this a larger field -->
 		<label for="report">Test report:</label>
 		<input type="text" th:field="*{report}" />

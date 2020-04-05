@@ -1,11 +1,13 @@
 package exercise.snowmobiletestresultdb.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -19,7 +21,9 @@ public class SnowMobile {
 	private int year;
 	private int trackWidth;
 	private int trackLength;
-	private ArrayList<String> tests;
+	
+	@OneToMany
+	private List<TestReport> tests;
 		
 	public SnowMobile() {}
 
@@ -28,7 +32,7 @@ public class SnowMobile {
 		this.year = year;
 		this.trackWidth = trackWidth;
 		this.trackLength = trackLength;
-		this.tests = new ArrayList<String>();
+		this.tests = new ArrayList<TestReport>();
 	}
 
 	public Long getId() {
@@ -72,17 +76,17 @@ public class SnowMobile {
 	}
 
 	// List getter?
-	public ArrayList<String> getTests() {
+	public List<TestReport> getTests() {
 		if (this.tests.get(0).equals(null)) {
-			ArrayList<String> notests = new ArrayList<String>();
-			notests.add("No tests");
+			ArrayList<TestReport> notests = new ArrayList<TestReport>();
+			notests.add(new TestReport());
 			return notests;
 		}
 		return tests;
 	}
 
 	// This setter probably fails
-	public void setTests(ArrayList<String> tests) {
+	public void setTests(ArrayList<TestReport> tests) {
 		this.tests = tests;
 	}
 	

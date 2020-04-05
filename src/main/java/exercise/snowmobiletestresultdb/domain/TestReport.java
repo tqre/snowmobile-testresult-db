@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class TestReport {
@@ -12,25 +16,31 @@ public class TestReport {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private String vehicle; // TODO: vehicle class
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name = "modelid") // Where did this come from??
+	private SnowMobile snowmobile;
+	
 	private String testtype;
 	private String time; // object?
 	private String person; // TODO: user class implement here
 	private String report;
 	
-	public TestReport () {}
+	public TestReport () {
+		this.testtype = "No tests";
+	}
 	
-	public TestReport(String vehicle, String testtype, String time, String person, String report) {
-		this.vehicle = vehicle;
+	public TestReport(SnowMobile snowmobile, String testtype, String time, String person, String report) {
+		this.snowmobile = snowmobile;
 		this.testtype = testtype;
 		this.time = time;
 		this.person = person;
 		this.report = report;
 	}
 	
-	public TestReport(Long id, String vehicle, String testtype, String time, String person, String report) {
+	public TestReport(Long id, SnowMobile snowmobile, String testtype, String time, String person, String report) {
 		this.id = id;
-		this.vehicle = vehicle;
+		this.snowmobile = snowmobile;
 		this.testtype = testtype;
 		this.time = time;
 		this.person = person;
@@ -45,12 +55,12 @@ public class TestReport {
 		this.id = id;
 	}
 
-	public String getVehicle() {
-		return vehicle;
+	public SnowMobile getSnowMobile() {
+		return snowmobile;
 	}
 
-	public void setVehicle(String vehicle) {
-		this.vehicle = vehicle;
+	public void setSnowMobile(SnowMobile snowmobile) {
+		this.snowmobile = snowmobile;
 	}
 
 	public String getTesttype() {
@@ -87,7 +97,7 @@ public class TestReport {
 
 	@Override
 	public String toString() {
-		return "TestReport [id=" + id + ", vehicle=" + vehicle + ", testtype=" + testtype + ", time=" + time
+		return "TestReport [id=" + id + ", vehicle=" + snowmobile + ", testtype=" + testtype + ", time=" + time
 				+ ", person=" + person + ", report=" + report + "]";
 	}
 
