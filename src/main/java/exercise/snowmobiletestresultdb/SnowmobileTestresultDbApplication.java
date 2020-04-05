@@ -39,11 +39,15 @@ public class SnowmobileTestresultDbApplication {
 			User u1 = new User("admin", "ADMIN",
 					"etu","suku","addr","phone","email",
 					"$2b$12$oDcqQft.Zz9IjNEbY5Hso.HAjcVB/dWfWfDD8IxDDGMSJ2lnPcZMK");
-			User u2 = new User("user", "USER",
+			User u2 = new User("tester", "TESTER",
 					"etu","suku","addr","phone","email",
 					"$2b$12$EftI0F11VetixKl96cDRRuh3rVHdyyVBNUNQ0TZHK.OKdyZbyOeP.");
-			userRepo.save(u1);
+			User u3 = new User("viewer", "VIEWER",
+					"etu","suku","addr","phone","email",
+					"$2b$12$EftI0F11VetixKl96cDRRuh3rVHdyyVBNUNQ0TZHK.OKdyZbyOeP.");
+			userRepo.save(u1);			
 			userRepo.save(u2);
+			userRepo.save(u3);
 		};
 	}
 }

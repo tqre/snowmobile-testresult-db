@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Add snowmobile</title>
+</head>
+
+<body>
+	<h1>Add a new snowmobile</h1>
+	<form th:object="${snowmobile}" 
+	      th:action="@{save_snowmobile}" method="post" action="#">
+	
+		<label for="model">Model:</label>
+		<input type="text" th:field="*{model}"/>
+		<br>
+		<label for="year">Year</label>
+		<input type="text" th:field="*{year}"/>
+		<br>
+		<label for="trackWidth">Track width:</label>
+		<input type="text" th:field="*{trackWidth}"/>
+		<br>
+		<label for="trackLength">Track length:</label>
+		<input type="text" th:field="*{trackLength}"/>
+		<br>
+		<br>
+		<input type="submit" value="Save new snowmobile"></input>
+	</form>
+</body>
+</html>

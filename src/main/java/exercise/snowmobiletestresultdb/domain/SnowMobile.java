@@ -1,9 +1,12 @@
 package exercise.snowmobiletestresultdb.domain;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class SnowMobile {
@@ -16,16 +19,16 @@ public class SnowMobile {
 	private int year;
 	private int trackWidth;
 	private int trackLength;
-	private String tests; // TODO: <List> entity
+	private ArrayList<String> tests; // TODO: <List> entity
 
 	public SnowMobile() {}
 
-	public SnowMobile(String model, int year, int trackWidth, int trackLength, String tests) {
+	public SnowMobile(String model, int year, int trackWidth, int trackLength) {
 		this.model = model;
 		this.year = year;
 		this.trackWidth = trackWidth;
 		this.trackLength = trackLength;
-		this.tests = tests;
+		this.tests = new ArrayList<String>();
 	}
 
 	public Long getId() {
@@ -68,11 +71,13 @@ public class SnowMobile {
 		this.trackLength = trackLength;
 	}
 
-	public String getTests() {
+	// List getter?
+	public ArrayList<String> getTests() {
 		return tests;
 	}
 
-	public void setTests(String tests) {
+	// This setter probably fails
+	public void setTests(ArrayList<String> tests) {
 		this.tests = tests;
 	}
 	

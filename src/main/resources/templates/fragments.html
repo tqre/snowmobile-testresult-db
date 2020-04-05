@@ -3,7 +3,15 @@
 	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <div th:fragment="navbar">
-<nav class="nav nav-tabs mr-auto">
+
+<!-- Login screen  -->
+<nav class="nav nav-tabs" sec:authorize="isAnonymous()">
+	<h3 class="nav-text">Room for logo</h3>
+</nav>
+
+<!-- Tabbed navigation after authentication -->
+<nav class="nav nav-tabs mr-auto" sec:authorize="isAuthenticated()">
+
 <!-- Navbar left side: tabs for different views -->
 <ul class="nav nav-tabs">
    	<li class="nav-item">
@@ -14,9 +22,9 @@
    	</li>   	
    	<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
    		<a class="nav-link" th:href="@{/all_users}">Users</a>
-   	</li>
-    	
+   	</li>    	
 </ul>
+
 <!-- Navbar right side: username, my account button, sign out button -->
 <ul class="nav nav-tabs ml-auto">	
    	<li class="nav-text" sec:authorize="isAuthenticated()" th:inline="text">
