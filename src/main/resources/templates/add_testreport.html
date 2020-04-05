@@ -13,7 +13,7 @@
 		<label for="tester">Tester name:</label>
 		<!-- TODO: get username automatically here -->
 		<input type="text" th:field="*{person}"/>
-		<br> -->
+		<br>
 		<label for="testtype">Test type:</label>
 		<input type="text" th:field="*{testtype}"/>
 		<br>
@@ -28,9 +28,10 @@
 					th:text="${sm.model}">
 			</option>
 		</select>
+		<br>
 		<!-- Make this a larger field -->
-		<label for="report">Test report:</label>
-		<input type="text" th:field="*{report}" />
+		<label for="report">Test report:</label><br>
+		<textarea th:field="*{report}"></textarea>
 		<br>
 		<input type="submit" value="Save new testreport"></input>
 	</form>
