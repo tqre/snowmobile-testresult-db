@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Add testreport</title>
+</head>
+
+<body>
+	<h1>Add a new testreport</h1>
+	<form th:object="${testreport}" 
+	      th:action="@{save_testreport}" method="post" action="#">
+	
+		<label for="tester">Tester name:</label>
+		<!-- TODO: get username automatically here -->
+		<input type="text" th:field="*{person}"/>
+		<br> -->
+		<label for="testtype">Test type:</label>
+		<input type="text" th:field="*{testtype}"/>
+		<br>
+		<label for="time">Time:</label>
+		<input type="text" th:field="*{time}"/>
+		<br>
+		<label for="snowmobile">Snowmobile:</label>
+		<!-- Dropdown list for the vehicles -->
+		<input type="text" th:field="*{vehicle}"/>
+		<br>
+		<!-- Make this a larger field -->
+		<label for="report">Test report:</label>
+		<input type="text" th:field="*{report}" />
+		<br>
+		<input type="submit" value="Save new testreport"></input>
+	</form>
+</body>
+</html>

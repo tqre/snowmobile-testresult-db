@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import exercise.snowmobiletestresultdb.domain.TestReport;
+import exercise.snowmobiletestresultdb.domain.SnowMobile;
+import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
+//import exercise.snowmobiletestresultdb.domain.TestReport;
 import exercise.snowmobiletestresultdb.domain.TestReportRepository;
 import exercise.snowmobiletestresultdb.domain.User;
 import exercise.snowmobiletestresultdb.domain.UserRepository;
@@ -19,12 +21,23 @@ public class SnowmobileTestresultDbApplication {
 	
 	@Bean
 	public CommandLineRunner CLR(
+			SnowMobileRepository smRepo,
 			TestReportRepository trRepo,
 			UserRepository userRepo) {
 		
 		return (args) -> {
 			
-			// Reports
+			// Snowmobiles
+			
+			SnowMobile sm1 = new SnowMobile("Lupus superx450", 1970, 450, 3500);
+			SnowMobile sm2 = new SnowMobile("Sciurus furry99", 1999, 500, 3700);
+			SnowMobile sm3 = new SnowMobile("Mephitis superExhaust 3900", 2020, 600, 3900);
+			
+			smRepo.save(sm1);
+			smRepo.save(sm2);
+			smRepo.save(sm3);
+			
+			/* Reports
 			TestReport tr1 = new TestReport(
 					"Lupus", "Test", "Today", "Someone", "VIEW BUTTON");
 			TestReport tr2 = new TestReport(
@@ -34,6 +47,7 @@ public class SnowmobileTestresultDbApplication {
 			trRepo.save(tr1);
 			trRepo.save(tr2);
 			trRepo.save(tr3);
+			*/
 			
 			// Users
 			User u1 = new User("admin", "ADMIN",

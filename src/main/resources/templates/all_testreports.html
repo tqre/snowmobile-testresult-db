@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 	<meta charset="UTF-8">
@@ -26,6 +27,10 @@
 			<td th:text = "${report.report}" />
 		</tr>
 	</table>
+	<button class="btn btn-success" sec:authorize="hasAnyAuthority('ADMIN','TESTER')"
+			onclick="location.href='/add_testreport'" type="button">
+	Add a new test report
+	</button>
 </body>
 
 </html>

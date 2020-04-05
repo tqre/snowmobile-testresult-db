@@ -19,8 +19,8 @@ public class SnowMobile {
 	private int year;
 	private int trackWidth;
 	private int trackLength;
-	private ArrayList<String> tests; // TODO: <List> entity
-
+	private ArrayList<String> tests;
+		
 	public SnowMobile() {}
 
 	public SnowMobile(String model, int year, int trackWidth, int trackLength) {
@@ -73,6 +73,11 @@ public class SnowMobile {
 
 	// List getter?
 	public ArrayList<String> getTests() {
+		if (this.tests.get(0).equals(null)) {
+			ArrayList<String> notests = new ArrayList<String>();
+			notests.add("No tests");
+			return notests;
+		}
 		return tests;
 	}
 
