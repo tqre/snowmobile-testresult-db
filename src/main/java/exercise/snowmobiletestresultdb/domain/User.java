@@ -17,6 +17,8 @@ public class User {
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
 	
+	// Make a class out of this so users can have multiple roles?
+	// TODO: define roles!
 	@Column(name = "role", nullable = false)
 	private String role;
 	

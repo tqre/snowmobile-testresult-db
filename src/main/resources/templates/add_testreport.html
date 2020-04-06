@@ -6,6 +6,7 @@
 </head>
 
 <body>
+	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new testreport</h1>
 	<form th:object="${testreport}" 
 	      th:action="@{save_testreport}" method="post" action="#">

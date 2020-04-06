@@ -6,6 +6,7 @@
 </head>
 
 <body>
+	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new snowmobile</h1>
 	<form th:object="${snowmobile}" 
 	      th:action="@{save_snowmobile}" method="post" action="#">
