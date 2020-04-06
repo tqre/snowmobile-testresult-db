@@ -78,7 +78,7 @@ public class SnowMobile {
 	// List getter?
 	public List<TestReport> getTests() {
 		if (this.tests.get(0).equals(null)) {
-			ArrayList<TestReport> notests = new ArrayList<TestReport>();
+			List<TestReport> notests = new ArrayList<TestReport>();
 			notests.add(new TestReport());
 			return notests;
 		}
@@ -86,9 +86,7 @@ public class SnowMobile {
 	}
 
 	// This setter probably fails
-	public void setTests(ArrayList<TestReport> tests) {
+	public void setTests(List<TestReport> tests) {
 		this.tests = tests;
-	}
-	
-	
+	}	
 }

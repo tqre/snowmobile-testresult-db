@@ -1,5 +1,7 @@
 package exercise.snowmobiletestresultdb.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
+import exercise.snowmobiletestresultdb.domain.TestReportRepository;
 
 @Controller
 public class SnowMobileController {
 
 	@Autowired
 	private SnowMobileRepository smRepo;
+	
+	@Autowired
+	private TestReportRepository trRepo;
 	
 	@RequestMapping("/all_snowmobiles")
 	public String showAllSnowMobiles(Model model) {
@@ -33,19 +39,14 @@ public class SnowMobileController {
 		// TODO: notify user for success would be nice
 		return "redirect:all_snowmobiles";
 	}
-	/*
-	@RequestMapping("/snowmobilestatus/{id}")
-	public String getTestsForSnowMobileModel(
-			@PathVariable("id") Long snowMobileId, Model model) {
-		model.addAttribute("snowmobile", smRepo.findById(snowMobileId));	
-		return "/viewtests";
-	}
-	*/
 	
 	@RequestMapping("/snowmobilestatus/{id}")
 	public String getTestsForSnowMobileModel(
 			@PathVariable("id") Long snowMobileId, Model model) {
-		model.addAttribute("snowmobile", smRepo.findById(snowMobileId));
+		Optional<SnowMobile> snowmobile = smRepo.findById(snowMobileId);
+		model.addAttribute("snowmobile", snowmobile);
+		// TODO: get all tests to model for now...
+		//model.addAttribute("tests", trRepo.findAll());
 		return "/viewtests";
 	}
 	/* REST methods??

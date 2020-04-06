@@ -21,7 +21,6 @@
 		<input type="text" th:field="*{time}"/>
 		<br>
 		<label for="snowmobile">Snowmobile:</label>
-		<!-- TODO: SOME ERROR ON THE NEXT LINE HERE!!! -->
 		<select th:field="${testreport.snowMobile}">
 			<option th:each="sm: ${all_snowmobiles}"
 					th:value="${sm.id}"
