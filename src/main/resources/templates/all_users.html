@@ -34,6 +34,10 @@
 			<td th:text = "${user.pwdHash}" />
 		</tr>
 	</table>
+	<button class="btn btn-success" sec:authorize="hasAuthority('ADMIN')"
+			onclick="location.href='/add_user'" type="button">
+	Add a new user
+	</button>
 </body>
 
 </html>
