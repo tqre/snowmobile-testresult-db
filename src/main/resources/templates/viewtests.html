@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}">
+	<title>Test reports for a snowmobile</title>	
+</head>
+
+<body>
+	<div th:replace="fragments :: navbar"></div>
+	<h1>MODEL:</h1>
+	<div th:object="${snowmobile}">
+	<p th:text="*{{model}}"></p>
+	</div>
+	<h2>Tests:</h2>
+	<div>
+	<table class="table table-striped">
+		<tr>
+			<th>Test type</th>
+			<th>Report</th>
+		</tr>
+		<!-- 
+		<tr th:each="sm : ${snowmobile}}">
+			<td th:text="*{{sm.tests.testtype}}"/>
+			<td th:text="*{{sm.tests.report}}"/>
+		</tr>
+		-->
+	</table>
+	</div>
+	
+	<!-- 
+	<table class="table table-striped">
+		<tr>
+			<th>MODEL</th>
+			<th>Time</th>
+			<th>Tester</th>
+			<th>Report</th>
+		</tr>		
+		<tr th:each = "snowmobile: ${snowmobile}">
+			<td th:text = "${snowmobile.model}" />
+			<td th:text = "${snowmobile.year}" />
+		</tr>
+	</table>
+	-->
+</body>
+
+</html>

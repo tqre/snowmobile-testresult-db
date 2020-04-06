@@ -3,6 +3,7 @@ package exercise.snowmobiletestresultdb.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobile;
@@ -32,4 +33,25 @@ public class SnowMobileController {
 		// TODO: notify user for success would be nice
 		return "redirect:all_snowmobiles";
 	}
+	/*
+	@RequestMapping("/snowmobilestatus/{id}")
+	public String getTestsForSnowMobileModel(
+			@PathVariable("id") Long snowMobileId, Model model) {
+		model.addAttribute("snowmobile", smRepo.findById(snowMobileId));	
+		return "/viewtests";
+	}
+	*/
+	
+	@RequestMapping("/snowmobilestatus/{id}")
+	public String getTestsForSnowMobileModel(
+			@PathVariable("id") Long snowMobileId, Model model) {
+		model.addAttribute("snowmobile", smRepo.findById(snowMobileId));
+		return "/viewtests";
+	}
+	/* REST methods??
+	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
+	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {
+		return bookRepository.findById(bookId);
+	}
+	*/
 }
