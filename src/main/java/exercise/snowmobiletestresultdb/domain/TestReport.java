@@ -1,5 +1,6 @@
 package exercise.snowmobiletestresultdb.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,8 @@ public class TestReport {
 	private String testtype;
 	private String time; // object?
 	private String person; // TODO: user class implement here
+	
+	@Column(length=1024)
 	private String report;
 	
 	public TestReport () {}

@@ -24,7 +24,7 @@
 			<td th:text = "${report.testtype}" />
 			<td th:text = "${report.time}" />
 			<td th:text = "${report.person}" />
-			<td th:text = "${report.report}" />
+			<td><a th:href = "@{|/viewreport/${report.id}|}">VIEW</a></td>
 		</tr>
 	</table>
 	<button class="btn btn-success" sec:authorize="hasAnyAuthority('ADMIN','TESTER')"

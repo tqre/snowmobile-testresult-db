@@ -44,10 +44,4 @@ public class SnowMobileController {
 		model.addAttribute("snowmobile", snowmobile.get());
 		return "/viewtests";
 	}
-	/* REST methods??
-	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
-	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {
-		return bookRepository.findById(bookId);
-	}
-	*/
 }
