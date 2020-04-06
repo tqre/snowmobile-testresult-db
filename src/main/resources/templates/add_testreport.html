@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
 	<title>Add testreport</title>
 </head>
 
@@ -29,7 +30,7 @@
 			</option>
 		</select>
 		<br>
-		<!-- Make this a larger field -->
+		<!-- TODO: Make this a larger field -->
 		<label for="report">Test report:</label><br>
 		<textarea th:field="*{report}"></textarea>
 		<br>
