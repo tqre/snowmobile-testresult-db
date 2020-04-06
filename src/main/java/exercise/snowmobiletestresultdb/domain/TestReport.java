@@ -18,7 +18,7 @@ public class TestReport {
 	
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name = "modelid") // Where did this come from??
+	@JoinColumn(name = "snowmobileid") // Where did this come from??
 	private SnowMobile snowmobile;
 	
 	private String testtype;
@@ -26,9 +26,7 @@ public class TestReport {
 	private String person; // TODO: user class implement here
 	private String report;
 	
-	public TestReport () {
-		this.testtype = "No tests";
-	}
+	public TestReport () {}
 	
 	public TestReport(SnowMobile snowmobile, String testtype, String time, String person, String report) {
 		this.snowmobile = snowmobile;

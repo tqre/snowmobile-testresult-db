@@ -1,8 +1,8 @@
 package exercise.snowmobiletestresultdb.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +22,7 @@ public class SnowMobile {
 	private int trackWidth;
 	private int trackLength;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="snowmobile")
 	private List<TestReport> tests;
 		
 	public SnowMobile() {}
@@ -32,7 +32,6 @@ public class SnowMobile {
 		this.year = year;
 		this.trackWidth = trackWidth;
 		this.trackLength = trackLength;
-		this.tests = new ArrayList<TestReport>();
 	}
 
 	public Long getId() {
@@ -75,17 +74,17 @@ public class SnowMobile {
 		this.trackLength = trackLength;
 	}
 
-	// List getter?
 	public List<TestReport> getTests() {
+		/*
 		if (this.tests.get(0).equals(null)) {
 			List<TestReport> notests = new ArrayList<TestReport>();
 			notests.add(new TestReport());
 			return notests;
 		}
+		*/
 		return tests;
 	}
 
-	// This setter probably fails
 	public void setTests(List<TestReport> tests) {
 		this.tests = tests;
 	}	

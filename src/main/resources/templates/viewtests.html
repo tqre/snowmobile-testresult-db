@@ -10,27 +10,18 @@
 
 <body>
 	<div th:replace="fragments :: navbar"></div>
-	<h1>MODEL:</h1>
-	<div th:object="${snowmobile}">
-	<p th:text="*{{model}}"></p>
-	</div>
-	<h2>Tests:</h2>
-	<!-- TODO: How to access the List<TestReport> tests? -->
-	
-	<!-- 
+	<h1 th:text="${snowmobile.model}"></h1>
 	<table class="table table-striped">
+		<div th:each = "test: ${snowmobile.tests}">
 		<tr>
-			<th>MODEL</th>
-			<th>Time</th>
-			<th>Tester</th>
-			<th>Report</th>
-		</tr>		
-		<tr th:each = "snowmobile: ${snowmobile}">
-			<td th:text = "${snowmobile.model}" />
-			<td th:text = "${snowmobile.year}" />
+			<td th:text = "${test.testtype}" />
+			<td th:text = "${test.person}" />
+			<td th:text = "${test.time}" />	
 		</tr>
+		<tr>
+			<td th:text = "${test.report}" />
+		</tr>
+		</div>
 	</table>
-	-->
 </body>
-
 </html>

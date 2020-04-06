@@ -10,16 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
-import exercise.snowmobiletestresultdb.domain.TestReportRepository;
 
 @Controller
 public class SnowMobileController {
 
 	@Autowired
 	private SnowMobileRepository smRepo;
-	
-	@Autowired
-	private TestReportRepository trRepo;
 	
 	@RequestMapping("/all_snowmobiles")
 	public String showAllSnowMobiles(Model model) {
@@ -44,9 +40,8 @@ public class SnowMobileController {
 	public String getTestsForSnowMobileModel(
 			@PathVariable("id") Long snowMobileId, Model model) {
 		Optional<SnowMobile> snowmobile = smRepo.findById(snowMobileId);
-		model.addAttribute("snowmobile", snowmobile);
-		// TODO: get all tests to model for now...
-		//model.addAttribute("tests", trRepo.findAll());
+		// We have to unwrap the Optional type to get our hands on to the object itself
+		model.addAttribute("snowmobile", snowmobile.get());
 		return "/viewtests";
 	}
 	/* REST methods??
