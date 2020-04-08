@@ -1,0 +1,19 @@
+- prioritize TODO-list
+- user registration
+- my account- own account editing
+- more detailed access control scheme
+  - role enumeration, role class?
+  - who can add snowmobiles, who tests?
+ - edit/delete functionality
+  - cross-references handling, delete something -> wipe database
+  - snowmobile editing/deletion
+  - user detail editing/deletion, admin only stuff
+  - testreport editing/deletion
+- user input validation on all forms
+- tester name automatically from logged in user data
+- expand user first name + last name on person -field in all_testreports
+- user details show on individual report view
+- don't show report text on viewtests.html -> link to individual tests
+- tests per user
+- real backend SQL server instead of Heroku deployment
+  - password to register, docker?
