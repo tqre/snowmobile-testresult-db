@@ -13,15 +13,8 @@
 	<h1>My account</h1>
 	<!-- TODO: change save_user to something else, so it doesn't redirect to -->
 	<!--       admin places -->
-	<form th:object="${currentuser}" 
-	      th:action="@{save_user}" method="post" action="#">
-	
-		<!-- Is it possible to avoid this? -->
-		<!-- Not editable fields -->
-		<input type="hidden" th:field="*{id}" />
-		<input type="hidden" th:field="*{username}"/>
-		<input type="hidden" th:field="*{role}"/>
-		
+	<form th:object="${modifieduser}" 
+	      th:action="@{modify_user}" method="post" action="#">		
 		<label for="firstname">First name:</label>
 		<input type="text" th:field="*{firstname}"/>
 		<br>
@@ -37,10 +30,6 @@
 		<label for="email">Email:</label>
 		<input type="text" th:field="*{email}"/>
 		<br>
-		<label for="password">Password</label>
-		<!-- TODO: make stars appear here instead of text -->
-		<!-- This is broken, have to reinput password to avoid hash getting hashed as passwd -->
-		<input type="text" th:field="*{pwdHash}"/>
 		<br>
 		<input type="submit" value="Save new user"></input>
 	</form>

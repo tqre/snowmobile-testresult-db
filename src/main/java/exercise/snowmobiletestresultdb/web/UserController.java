@@ -53,14 +53,23 @@ public class UserController {
 	public String editUser(@AuthenticationPrincipal UserDetails currentUser,
 			Model model) {
 		User user = uRepo.findByUsername(currentUser.getUsername());
-		model.addAttribute("currentuser", user);
-		return "/myaccount";
+		model.addAttribute("modifieduser", user);
+		return "myaccount";
 	}	
-/*
+
 	@RequestMapping("/modify_user")
-	public String modifyUser(User currentuser) {
-		uRepo.save(currentuser);
-		return "save_user";
+	public String modifyUser(@AuthenticationPrincipal UserDetails currentUser,
+			User modifieduser) {
+		User olduserdata = uRepo.findByUsername(currentUser.getUsername());
+		// This is a workaround, we definetely don't want to show this data in clientside
+		modifieduser.setId(olduserdata.getId());
+		modifieduser.setUsername(olduserdata.getUsername());
+		modifieduser.setPwdHash(olduserdata.getPwdHash());
+		modifieduser.setRole(olduserdata.getRole());		
+		uRepo.save(modifieduser);
+		// TODO: confirmation message
+		// TODO: review data ???
+		return "index";
 	}
-*/
+
 }
