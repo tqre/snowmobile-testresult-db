@@ -1,5 +1,6 @@
 - prioritize TODO-list
-- user registration
+- user registration + email verification
+https://www.baeldung.com/registration-with-spring-mvc-and-spring-security  
 - my account: password change
 - forms look cluttered, align them, layout&colour stuff
 - confirmation on successful operations
@@ -19,4 +20,3 @@
 - show testreports per user
 - real backend SQL server instead of Heroku deployment
   - password to register, docker?
-- remove password hash from admin view
