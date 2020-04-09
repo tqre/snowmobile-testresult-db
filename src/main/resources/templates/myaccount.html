@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
-	<title>Add a new user</title>
+	<title>Account information</title>	
 </head>
 
 <body>
 	<div th:replace="fragments :: navbar"></div>
-	<h1>Add a new user</h1>
-	<form sec:authorize="hasAuthority('ADMIN')"
-		  th:object="${newuser}" 
+	<h1>My account</h1>
+	<!-- TODO: change save_user to something else, so it doesn't redirect to -->
+	<!--       admin places -->
+	<form th:object="${currentuser}" 
 	      th:action="@{save_user}" method="post" action="#">
 	
-		<label for="username">Username:</label>
-		<input type="text" th:field="*{username}"/>
-		<br>
+		<!-- Is it possible to avoid this? -->
+		<!-- Not editable fields -->
+		<input type="hidden" th:field="*{id}" />
+		<input type="hidden" th:field="*{username}"/>
+		<input type="hidden" th:field="*{role}"/>
+		
 		<label for="firstname">First name:</label>
 		<input type="text" th:field="*{firstname}"/>
 		<br>
@@ -27,20 +32,18 @@
 		<input type="text" th:field="*{address}"/>
 		<br>
 		<label for="telephone">Telephone number:</label>
-		<input type="text" th:field="*{telephone}"/>
+		<input type="text" th:field="*{address}"/>
 		<br>
 		<label for="email">Email:</label>
 		<input type="text" th:field="*{email}"/>
 		<br>
-		<!-- TODO: dropdown list for roles -->
-		<label for="role">Role:</label>
-		<input type="text" th:field="*{role}"/>
-		<br>
 		<label for="password">Password</label>
 		<!-- TODO: make stars appear here instead of text -->
+		<!-- This is broken, have to reinput password to avoid hash getting hashed as passwd -->
 		<input type="text" th:field="*{pwdHash}"/>
 		<br>
 		<input type="submit" value="Save new user"></input>
 	</form>
 </body>
+
 </html>

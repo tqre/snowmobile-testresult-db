@@ -45,7 +45,7 @@ public class User {
 		this.email = email;
 		this.pwdHash = pwdHash;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

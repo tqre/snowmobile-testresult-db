@@ -1,14 +1,15 @@
 package exercise.snowmobiletestresultdb.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.User;
 import exercise.snowmobiletestresultdb.domain.UserRepository;
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Controller
 public class UserController {
@@ -47,4 +48,19 @@ public class UserController {
 		// TODO: notify user for success would be really nice
 		return "redirect:all_users";
 	}
+	
+	@RequestMapping("/edit_user")
+	public String editUser(@AuthenticationPrincipal UserDetails currentUser,
+			Model model) {
+		User user = uRepo.findByUsername(currentUser.getUsername());
+		model.addAttribute("currentuser", user);
+		return "/myaccount";
+	}	
+/*
+	@RequestMapping("/modify_user")
+	public String modifyUser(User currentuser) {
+		uRepo.save(currentuser);
+		return "save_user";
+	}
+*/
 }

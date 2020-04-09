@@ -31,7 +31,7 @@
    	<h3 style="margin-right: 10px">[[${#httpServletRequest.remoteUser}]]</h3>
    	</li>
    	<li class="nav-item" sec:authorize="isAuthenticated()">
-   		<form>
+   		<form th:action="@{/edit_user}" method="post">
     	<input type="submit" value="My account" />
     	</form>
     </li>     

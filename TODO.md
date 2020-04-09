@@ -1,6 +1,8 @@
 - prioritize TODO-list
 - user registration
 - my account- own account editing
+  - partly functional
+- forms look cluttered, align them, layout&colour stuff
 - more detailed access control scheme
   - role enumeration, role class?
   - who can add snowmobiles, who tests?
@@ -17,3 +19,4 @@
 - tests per user
 - real backend SQL server instead of Heroku deployment
   - password to register, docker?
+- remove password hash from admin view
