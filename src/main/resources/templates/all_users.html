@@ -21,7 +21,6 @@
 			<th>Address</th>
 			<th>Telephone</th>
 			<th>Email</th>
-			<th>Password hash<th>
 		</tr>		
 		<tr th:each = "user: ${get_all}">
 			<td th:text = "${user.username}" />
@@ -31,7 +30,6 @@
 			<td th:text = "${user.address}" />
 			<td th:text = "${user.telephone}" />
 			<td th:text = "${user.email}" />
-			<td th:text = "${user.pwdHash}" />
 		</tr>
 	</table>
 	<button class="btn btn-success" sec:authorize="hasAuthority('ADMIN')"

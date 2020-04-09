@@ -1,8 +1,8 @@
 - prioritize TODO-list
 - user registration
-- my account- own account editing
-  - partly functional
+- my account: password change
 - forms look cluttered, align them, layout&colour stuff
+- confirmation on successful operations
 - more detailed access control scheme
   - role enumeration, role class?
   - who can add snowmobiles, who tests?
@@ -16,7 +16,7 @@
 - expand user first name + last name on person -field in all_testreports
 - user details show on individual report view
 - don't show report text on viewtests.html -> link to individual tests
-- tests per user
+- show testreports per user
 - real backend SQL server instead of Heroku deployment
   - password to register, docker?
 - remove password hash from admin view
