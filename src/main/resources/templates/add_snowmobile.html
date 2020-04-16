@@ -10,24 +10,18 @@
 	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new snowmobile</h1>
 	<form th:object="${snowmobile}" 
-	      th:action="@{add_snowmobile}" method="post" action="#">
+	      th:action="@{save_snowmobile}" method="post" action="#">
 	
 		<label for="model">Model:</label>
 		<input type="text" th:field="*{model}"/>
 			<!-- How to send error messages? -->
 			<!-- IF is not triggering here -->
-			<div>
-			<p th:if="${#fields.hasErrors('model')}"
+			<p th:if="${#fields.hasErrors('*')}"
 			   th:errors="*{model}">Error</p>
-			</div> 
 		<br>
 		<label for="year">Year:</label>
-		<input type="text" th:field="*{year}">
-			<div>
-			<p th:if="${#fields.hasErrors('year')}"
-			   th:errors="${error}">Error</p>
-			</div> 
-			   
+		<input type="text" th:field="*{year}"/>
+			<p th:errors="*{year}">Error</p>
 		<br>
 		<label for="trackWidth">Track width:</label>
 		<input type="text" th:field="*{trackWidth}"/>
