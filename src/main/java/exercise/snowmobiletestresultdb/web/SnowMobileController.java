@@ -38,7 +38,6 @@ public class SnowMobileController {
 			BindingResult bindingResult, Model model) {
 		model.addAttribute("snowmobile", snowmobile);
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("error", bindingResult.toString());
 			return "add_snowmobile";
 		}
 		smRepo.save(snowmobile);

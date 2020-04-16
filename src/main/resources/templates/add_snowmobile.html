@@ -25,7 +25,7 @@
 		<input type="text" th:field="*{year}">
 			<div>
 			<p th:if="${#fields.hasErrors('year')}"
-			   th:text="${error}">
+			   th:errors="${error}">Error</p>
 			</div> 
 			   
 		<br>
