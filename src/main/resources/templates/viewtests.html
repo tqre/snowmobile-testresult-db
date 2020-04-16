@@ -15,7 +15,7 @@
 	<div th:each = "test: ${snowmobile.tests}">
 		<tr>
 			<td th:text = "${test.testtype}" />
-			<td th:text = "${test.person}" />
+			<td th:text = "${test.person.firstname}" />
 			<td th:text = "${test.time}" />	
 		</tr>
 		<tr>

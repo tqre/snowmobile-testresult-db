@@ -1,10 +1,13 @@
 package exercise.snowmobiletestresultdb.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -30,6 +33,9 @@ public class User {
 	
 	@Column(name = "password", nullable = false)
 	private String pwdHash;
+	
+	@OneToMany
+	private List<TestReport> tests;
 	
 	public User() {}
 	
@@ -116,5 +122,13 @@ public class User {
 
 	public void setPwdHash(String pwdHash) {
 		this.pwdHash = pwdHash;
+	}
+
+	public List<TestReport> getTests() {
+		return tests;
+	}
+	
+	public void setTests(List<TestReport> tests) {
+		this.tests = tests;
 	}
 }

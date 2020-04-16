@@ -14,7 +14,9 @@
 	<h3 th:text="${testreport.testtype}"></h3>
 	<h3 th:text=" ${testreport.time}"></h3>
 	<p th:text="${testreport.report}"></p>
-	<p>TODO: get person's information here too</p>
-	<h3 th:text="${testreport.person}"></h3>
+	<h4>Tester:</h4>
+	<h5 th:text="${testreport.person.firstname} + ' ' + ${testreport.person.lastname}"></h5>
+	<p th:text="${testreport.person.telephone}"></p>
+	<p th:text="${testreport.person.email}"></p>
 </body>
 </html>

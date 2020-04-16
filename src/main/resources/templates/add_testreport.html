@@ -11,7 +11,7 @@
 	<h1>Add a new testreport</h1>
 	<form th:object="${testreport}" 
 	      th:action="@{save_testreport}" method="post" action="#">	
-	    <h3 th:text="'Tester: ' + ${firstName} + ' ' + ${lastName}"></h3>
+	    <h3 th:text="'Tester: ' + ${firstname} + ' ' + ${lastname}"></h3>
 		<br>
 		<label for="testtype">Test type:</label>
 		<input type="text" th:field="*{testtype}"/>

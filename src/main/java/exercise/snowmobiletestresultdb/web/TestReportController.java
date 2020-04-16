@@ -43,8 +43,8 @@ public class TestReportController {
 		
 		// Secure? Probably not...
 		User tester = uRepo.findByUsername(currentUser.getUsername());
-		model.addAttribute("firstName", tester.getFirstname());
-		model.addAttribute("lastName", tester.getLastname());
+		model.addAttribute("firstname", tester.getFirstname());
+		model.addAttribute("lastname", tester.getLastname());
 		
 		return "add_testreport";
 	}	
