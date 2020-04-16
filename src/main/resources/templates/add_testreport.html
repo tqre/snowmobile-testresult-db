@@ -14,7 +14,13 @@
 	    <h3 th:text="'Tester: ' + ${firstname} + ' ' + ${lastname}"></h3>
 		<br>
 		<label for="testtype">Test type:</label>
-		<input type="text" th:field="*{testtype}"/>
+		<select th:field="*{testtype}">
+			<option value="Smoke test">Smoke test</option>
+			<option value="Durability test">Durability test</option>
+			<option value="Consumption test">Consumption test</option>
+			<option value="Safety test">Idiot test</option>
+			<option value="EMP test">EMP test</option>
+		</select>
 		<br>
 		<label for="time">Time:</label>
 		<input type="text" th:field="*{time}"/>
