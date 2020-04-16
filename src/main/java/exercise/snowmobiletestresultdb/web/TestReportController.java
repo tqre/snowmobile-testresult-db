@@ -42,14 +42,17 @@ public class TestReportController {
 		model.addAttribute("all_snowmobiles", smRepo.findAll());
 		
 		// Secure? Probably not...
-		User user = uRepo.findByUsername(currentUser.getUsername());
-		model.addAttribute("firstName", user.getFirstname());
-		model.addAttribute("lastName", user.getLastname());
+		User tester = uRepo.findByUsername(currentUser.getUsername());
+		model.addAttribute("firstName", tester.getFirstname());
+		model.addAttribute("lastName", tester.getLastname());
 		
 		return "add_testreport";
 	}	
 	@RequestMapping("/save_testreport")
-	public String saveTestReport(TestReport testreport) {
+	public String saveTestReport(Model model, TestReport testreport,
+			@AuthenticationPrincipal UserDetails currentUser) {
+		User tester = uRepo.findByUsername(currentUser.getUsername());
+		testreport.setPerson(tester);
 		trRepo.save(testreport);
 		// TODO: notify user for success would be nice
 		return "redirect:all_testreports";
