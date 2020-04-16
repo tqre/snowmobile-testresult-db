@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -18,7 +21,12 @@ public class SnowMobile {
 	private Long id;
 	
 	private String model;
+	
+	@NotNull
+	@Min(1920)
+	@Max(2025)
 	private int year;
+	
 	private int trackWidth;
 	private int trackLength;
 	

@@ -2,11 +2,15 @@ package exercise.snowmobiletestresultdb.web;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
@@ -23,14 +27,19 @@ public class SnowMobileController {
 		return "all_snowmobiles";
 	}
 	
-	@RequestMapping("/add_snowmobile")
+	@RequestMapping(value="/add_snowmobile", method=RequestMethod.GET)
 	public String addSnowMobile(Model model) {
 		model.addAttribute("snowmobile", new SnowMobile());
 		return "add_snowmobile";
 	}
 	
-	@RequestMapping("/save_snowmobile")
-	public String saveSnowMobile(SnowMobile snowmobile) {
+	@RequestMapping(value="/add_snowmobile", method=RequestMethod.POST)
+	public String saveSnowMobile(@Valid SnowMobile snowmobile,
+			BindingResult bindingResult, Model model) {
+		model.addAttribute("snowmobile", snowmobile);
+		if (bindingResult.hasErrors()) {
+			return "add_snowmobile";
+		}
 		smRepo.save(snowmobile);
 		// TODO: notify user for success would be nice
 		return "redirect:all_snowmobiles";

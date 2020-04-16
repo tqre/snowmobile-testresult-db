@@ -10,13 +10,17 @@
 	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new snowmobile</h1>
 	<form th:object="${snowmobile}" 
-	      th:action="@{save_snowmobile}" method="post" action="#">
+	      th:action="@{add_snowmobile}" method="post" action="#">
 	
 		<label for="model">Model:</label>
 		<input type="text" th:field="*{model}"/>
 		<br>
-		<label for="year">Year</label>
-		<input type="text" th:field="*{year}"/>
+		<label for="year">Year:</label>
+		<tr>
+		<td><input type="text" th:field="*{year}"/></td>
+			   <td th:if="${#fields.hasErrors('year')}" 
+			      th:errors="*{year}"/></td>
+		</tr>
 		<br>
 		<label for="trackWidth">Track width:</label>
 		<input type="text" th:field="*{trackWidth}"/>
