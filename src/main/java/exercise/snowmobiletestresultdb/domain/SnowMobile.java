@@ -10,8 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -21,19 +20,21 @@ public class SnowMobile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull(message = "Model name is needed")
+	@Size(min=2, max=30)
 	private String model;
 	
-	@Min(value = 1920, message = "Snowmobiles were not invented before 1920")
-	@Max(value = 2025, message = "We are not planning THAT much ahead")
+	@Min(1920)
+	@Max(2025)
 	private int year;
 	
-	@Min(value = 400, message = "has to be 400-6500 millimeters")
-	@Max(value = 650, message = "has to be 400-6500 millimeters")
+	// message = "has to be 400-6500 millimeters")
+	@Min(value = 400)
+	@Max(value = 650)
 	private int trackWidth;
 	
-	@Min(value = 2500, message = "has to be 2500-4000 millimeters")
-	@Max(value = 4000, message = "has to be 2000-4000 millimeters")	
+	//has to be 2000-4000 millimeters
+	@Min(value = 2500)
+	@Max(value = 4000)	
 	private int trackLength;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="snowmobile")

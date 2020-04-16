@@ -19,7 +19,6 @@ public class SnowmobileTestresultDbApplication {
 		SpringApplication.run(SnowmobileTestresultDbApplication.class, args);
 	}
 	
-	
 	@Bean
 	public CommandLineRunner CLR(
 			SnowMobileRepository smRepo,

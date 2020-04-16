@@ -38,6 +38,7 @@ public class SnowMobileController {
 			BindingResult bindingResult, Model model) {
 		model.addAttribute("snowmobile", snowmobile);
 		if (bindingResult.hasErrors()) {
+			// How to send error messages?
 			return "add_snowmobile";
 		}
 		smRepo.save(snowmobile);

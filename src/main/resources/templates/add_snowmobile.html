@@ -14,13 +14,20 @@
 	
 		<label for="model">Model:</label>
 		<input type="text" th:field="*{model}"/>
+			<!-- How to send error messages? -->
+			<div>
+			<p th:if="${#fields.hasErrors('model')}"
+			   th:errors="*{model}">Error</p>
+			</div> 
 		<br>
 		<label for="year">Year:</label>
-		<tr>
-		<td><input type="text" th:field="*{year}"/></td>
-			   <td th:if="${#fields.hasErrors('year')}" 
-			      th:errors="*{year}"/></td>
-		</tr>
+		<input type="text" th:field="*{year}">
+			<div>
+			<p th:if="${#fields.hasErrors('year')}"
+			   th:each="error: ${#fields.hasErrors('year')}"
+			   th:text:="${{error}}">
+			</div> 
+			   
 		<br>
 		<label for="trackWidth">Track width:</label>
 		<input type="text" th:field="*{trackWidth}"/>
