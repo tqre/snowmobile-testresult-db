@@ -54,7 +54,7 @@ public class UserController {
 			Model model) {
 		User user = uRepo.findByUsername(currentUser.getUsername());
 		model.addAttribute("modifieduser", user);
-		return "myaccount";
+		return "redirect:myaccount";
 	}	
 
 	@RequestMapping("/modify_user")

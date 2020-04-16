@@ -24,14 +24,17 @@ public class TestReport {
 	
 	private String testtype;
 	private String time; // object?
-	private String person; // TODO: user class implement here
+	
+	@ManyToOne
+	@JoinColumn(name = "userid")
+	private User person;
 	
 	@Column(length=1024)
 	private String report;
 	
 	public TestReport () {}
 	
-	public TestReport(SnowMobile snowmobile, String testtype, String time, String person, String report) {
+	public TestReport(SnowMobile snowmobile, String testtype, String time, User person, String report) {
 		this.snowmobile = snowmobile;
 		this.testtype = testtype;
 		this.time = time;
@@ -39,7 +42,7 @@ public class TestReport {
 		this.report = report;
 	}
 	
-	public TestReport(Long id, SnowMobile snowmobile, String testtype, String time, String person, String report) {
+	public TestReport(Long id, SnowMobile snowmobile, String testtype, String time, User person, String report) {
 		this.id = id;
 		this.snowmobile = snowmobile;
 		this.testtype = testtype;
@@ -80,11 +83,11 @@ public class TestReport {
 		this.time = time;
 	}
 
-	public String getPerson() {
+	public User getPerson() {
 		return person;
 	}
 
-	public void setPerson(String person) {
+	public void setPerson(User person) {
 		this.person = person;
 	}
 

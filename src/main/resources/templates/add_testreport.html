@@ -10,11 +10,8 @@
 	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new testreport</h1>
 	<form th:object="${testreport}" 
-	      th:action="@{save_testreport}" method="post" action="#">
-	
-		<label for="tester">Tester name:</label>
-		<!-- TODO: get username automatically here -->
-		<input type="text" th:field="*{person}"/>
+	      th:action="@{save_testreport}" method="post" action="#">	
+	    <h3 th:text="'Tester: ' + ${firstName} + ' ' + ${lastName}"></h3>
 		<br>
 		<label for="testtype">Test type:</label>
 		<input type="text" th:field="*{testtype}"/>
@@ -34,6 +31,7 @@
 		<label for="report">Test report:</label><br>
 		<textarea th:field="*{report}"></textarea>
 		<br>
+
 		<input type="submit" value="Save new testreport"></input>
 	</form>
 </body>
