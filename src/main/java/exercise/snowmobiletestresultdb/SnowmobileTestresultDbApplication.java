@@ -19,6 +19,7 @@ public class SnowmobileTestresultDbApplication {
 		SpringApplication.run(SnowmobileTestresultDbApplication.class, args);
 	}
 	
+	
 	@Bean
 	public CommandLineRunner CLR(
 			SnowMobileRepository smRepo,
@@ -29,7 +30,7 @@ public class SnowmobileTestresultDbApplication {
 			
 			// Snowmobiles
 			
-			SnowMobile sm1 = new SnowMobile("Lupus superx450", 1970, 450, 3500);
+			SnowMobile sm1 = new SnowMobile("Lupus superx450", 1930, 450, 3500);
 			SnowMobile sm2 = new SnowMobile("Sciurus furry99", 1999, 500, 3700);
 			SnowMobile sm3 = new SnowMobile("Mephitis superExhaust 3900", 2020, 600, 3900);
 			

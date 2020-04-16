@@ -13,6 +13,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 
+
 @Entity
 public class SnowMobile {
 
@@ -20,14 +21,19 @@ public class SnowMobile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull(message = "Model name is needed")
 	private String model;
 	
-	@NotNull
-	@Min(1920)
-	@Max(2025)
+	@Min(value = 1920, message = "Snowmobiles were not invented before 1920")
+	@Max(value = 2025, message = "We are not planning THAT much ahead")
 	private int year;
 	
+	@Min(value = 400, message = "has to be 400-6500 millimeters")
+	@Max(value = 650, message = "has to be 400-6500 millimeters")
 	private int trackWidth;
+	
+	@Min(value = 2500, message = "has to be 2500-4000 millimeters")
+	@Max(value = 4000, message = "has to be 2000-4000 millimeters")	
 	private int trackLength;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="snowmobile")

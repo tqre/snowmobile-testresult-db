@@ -2,6 +2,9 @@
 
 Priority:
 - user input validation on all forms
+  - custom messages on add snowmobile
+  - users (email...
+  - testreports (date/reporttype...
 
 Important functionality:
 - edit/delete functionality
