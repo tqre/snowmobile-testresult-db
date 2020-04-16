@@ -15,6 +15,7 @@
 		<label for="model">Model:</label>
 		<input type="text" th:field="*{model}"/>
 			<!-- How to send error messages? -->
+			<!-- IF is not triggering here -->
 			<div>
 			<p th:if="${#fields.hasErrors('model')}"
 			   th:errors="*{model}">Error</p>
@@ -24,8 +25,7 @@
 		<input type="text" th:field="*{year}">
 			<div>
 			<p th:if="${#fields.hasErrors('year')}"
-			   th:each="error: ${#fields.hasErrors('year')}"
-			   th:text:="${{error}}">
+			   th:text="${error}">
 			</div> 
 			   
 		<br>
