@@ -4,7 +4,6 @@ Priority:
 - user input validation on all forms
 
 Important functionality:
-- my account: password change
 - edit/delete functionality
   - cross-references handling, delete something -> wipe database
   - snowmobile editing/deletion
@@ -13,6 +12,8 @@ Important functionality:
 
 Extra functionality:
 - show testreports per user
+- my account: password change
+- tester can edit his own tests
 
 Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
@@ -21,8 +22,7 @@ Cosmetics/user convenience:
 - user details show on individual report view
 - expand user first name + last name on person -field in all_testreports
 - user details show on individual report view
-- don't show report text on viewtests.html -> link to individual tests
-
+- don't show report text on snowmobilestatus/viewtests.html -> link to individual tests
   
 Probably not enough time:
 - real backend SQL server instead of Heroku deployment
