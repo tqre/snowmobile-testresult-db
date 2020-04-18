@@ -27,7 +27,7 @@
 			<td><a th:href="@{|/snowmobilestatus/${snowmobile.id}|}">TESTS</a><td>		
 		</tr>
 	</table>
-	
+
 	<button class="btn btn-success" sec:authorize="hasAuthority('ADMIN')"
 			onclick="location.href='/add_snowmobile'" type="button">
 	Add a new snowmobile
