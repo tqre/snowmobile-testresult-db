@@ -11,21 +11,25 @@
 	<h1>Add a new snowmobile</h1>
 	<form action="#" th:action="@{/save_snowmobile}"
 		  th:object="${snowMobile}" method="post">
-		
 		<label for="model">Model:</label>
 		<input type="text" th:field="*{model}"/>
-			<p th:if="${#fields.hasErrors('model')}"
-			   th:errors="*{model}">Error</p>
+		<span th:if="${#fields.hasErrors('model')}"
+		      th:errors="*{model}">Error</span>
 		<br>
 		<label for="year">Year:</label>
 		<input type="text" th:field="*{year}"/>
-			<p th:errors="*{year}">Error</p>
+		<span th:if="${#fields.hasErrors('year')}"
+		      th:errors="*{year}">Error</span>
 		<br>
 		<label for="trackWidth">Track width:</label>
 		<input type="text" th:field="*{trackWidth}"/>
+		<span th:if="${#fields.hasErrors('trackWidth')}"
+		      th:errors="*{trackWidth}">Error</span>
 		<br>
 		<label for="trackLength">Track length:</label>
 		<input type="text" th:field="*{trackLength}"/>
+		<span th:if="${#fields.hasErrors('trackLength')}"
+		      th:errors="*{trackLength}">Error</span>
 		<br>
 		<br>
 		<input type="submit" value="Save new snowmobile"></input>
