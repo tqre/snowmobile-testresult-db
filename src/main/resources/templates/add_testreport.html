@@ -21,6 +21,8 @@
 			<option value="Safety test">Idiot test</option>
 			<option value="EMP test">EMP test</option>
 		</select>
+		<span th:if="${#fields.hasErrors('testtype')}"
+		      th:errors="*{testtype}">Error</span>
 		<br>
 		<label for="time">Time:</label>
 		<input type="text" th:field="*{time}"/>
@@ -33,6 +35,7 @@
 					th:value="${sm.id}"
 					th:text="${sm.model}">
 			</option>
+			
 		</select>
 		<br>
 		<!-- TODO: Make this a larger field -->

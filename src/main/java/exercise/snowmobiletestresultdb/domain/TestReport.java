@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,6 +21,8 @@ public class TestReport {
 	@JoinColumn(name = "snowmobileid") // Where did this come from??
 	private SnowMobile snowmobile;
 	
+	@Pattern(regexp="^Smoke test|^Durability test|^Consumption test|^Safety test|^EMP test",
+			 message="{error.test}")
 	private String testtype;
 	
 	// This could be Date/DateTime object (whatever it is in Java)
