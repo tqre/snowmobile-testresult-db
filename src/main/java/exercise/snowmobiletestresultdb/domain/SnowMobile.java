@@ -20,21 +20,19 @@ public class SnowMobile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Size(min=2, max=30, message = "{test.message}")
+	@Size(min=5, max=30, message="{error.model}")
 	private String model;
 	
-	@Min(1920)
-	@Max(2025)
+	@Min(value=1920, message="{error.too_old}")
+	@Max(value=2025, message="{error.in_the_future}")
 	private int year;
 	
-	// message = "has to be 400-6500 millimeters")
-	@Min(value = 400)
-	@Max(value = 650)
+	@Min(value = 400, message="{error.track_width}")
+	@Max(value = 650, message="{error.track_width}")
 	private int trackWidth;
-	
-	//has to be 2000-4000 millimeters
-	@Min(value = 2500)
-	@Max(value = 4000)	
+
+	@Min(value = 2500, message="{error.track_length}")
+	@Max(value = 4000, message="{error.track_length}")	
 	private int trackLength;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="snowmobile")
