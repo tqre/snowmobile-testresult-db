@@ -17,17 +17,17 @@
 		      th:errors="*{model}">Error</span>
 		<br>
 		<label for="year">Year:</label>
-		<input type="text" th:field="*{year}"/>
+		<input type="number" th:field="*{year}"/>
 		<span th:if="${#fields.hasErrors('year')}"
 		      th:errors="*{year}">Error</span>
 		<br>
 		<label for="trackWidth">Track width:</label>
-		<input type="text" th:field="*{trackWidth}"/>
+		<input type="number" th:field="*{trackWidth}"/>
 		<span th:if="${#fields.hasErrors('trackWidth')}"
 		      th:errors="*{trackWidth}">Error</span>
 		<br>
 		<label for="trackLength">Track length:</label>
-		<input type="text" th:field="*{trackLength}"/>
+		<input type="number" th:field="*{trackLength}"/>
 		<span th:if="${#fields.hasErrors('trackLength')}"
 		      th:errors="*{trackLength}">Error</span>
 		<br>

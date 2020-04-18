@@ -27,8 +27,10 @@
 			<td><a th:href = "@{|/viewreport/${report.id}|}">VIEW</a></td>
 		</tr>
 	</table>
-	<button class="btn btn-success" sec:authorize="hasAnyAuthority('ADMIN','TESTER')"
-			onclick="location.href='/add_testreport'" type="button">
+	<button class="btn btn-success"
+			type="button" 
+			sec:authorize="hasAnyAuthority('ADMIN','TESTER')"
+			onclick="location.href='/add_testreport'"> 
 	Add a new test report
 	</button>
 </body>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
 import exercise.snowmobiletestresultdb.domain.TestReport;
 import exercise.snowmobiletestresultdb.domain.TestReportRepository;
@@ -38,6 +39,7 @@ public class TestReportController {
 		model.addAttribute("get_all", trRepo.findAll());
 		return "all_testreports";
 	}
+	
 	// TODO: Method security - TESTER+ADMIN allowed
 	// TODO: Get logged user name from uRepo
 	@GetMapping("/add_testreport")
@@ -46,13 +48,14 @@ public class TestReportController {
 		
 		model.addAttribute("testReport", new TestReport());
 		model.addAttribute("all_snowmobiles", smRepo.findAll());
+		
 		User tester = uRepo.findByUsername(currentUser.getUsername());
 		model.addAttribute("firstname", tester.getFirstname());
 		model.addAttribute("lastname", tester.getLastname());
 		return "add_testreport";
 	}
 	
-	// Validation works, but instead of message, we have an whitelabel error page.
+	// Validation works, but instead of message, a whitelabel error page appears!
 	// The method arguments have to be in right order!! BindingResult
 	// has to come imediately after @Valid attribute.
 	@PostMapping("/save_testreport")
@@ -65,7 +68,7 @@ public class TestReportController {
 		model.addAttribute("firstname", tester.getFirstname());
 		model.addAttribute("lastname", tester.getLastname());
 		model.addAttribute("all_snowmobiles", smRepo.findAll());
-		// Validation works, but instead of message, we get an error page??
+		
 		if (bindingResult.hasErrors()) {
 			return "add_testreport";
 		}
@@ -75,9 +78,11 @@ public class TestReportController {
 		// TODO: notify user for success would be nice
 		return "redirect:all_testreports";
 	}
+	
 	@RequestMapping("/viewreport/{id}")
-	public String getOneReport (
-			@PathVariable("id") Long testReportId, Model model) {
+	public String getOneReport (Model model,
+			@PathVariable("id") Long testReportId) {
+		
 		Optional<TestReport> testreport = trRepo.findById(testReportId);
 		// We have to unwrap the Optional type to get our hands on to the object itself
 		model.addAttribute("testreport", testreport.get());
