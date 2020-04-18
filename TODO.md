@@ -3,7 +3,7 @@
 Priority:
 - user input validation on all forms
   - users (email...
-  - testreports (date/reporttype...
+  - testreports 
 
 Important functionality:
 - edit/delete functionality

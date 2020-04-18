@@ -37,6 +37,8 @@
 		<br>
 		<!-- TODO: Make this a larger field -->
 		<label for="report">Test report:</label><br>
+		<h5 th:if="${#fields.hasErrors('report')}"
+		      th:errors="*{report}">Error</h5>
 		<textarea th:field="*{report}"></textarea>
 		<br>
 		<input type="submit" value="Save new testreport"></input>

@@ -31,6 +31,7 @@ public class TestReport {
 	private User person;
 	
 	@Column(length=1024)
+	@Size(min=40, message="{error.too_short}")
 	private String report;
 	
 	public TestReport () {}
