@@ -36,6 +36,7 @@ public class SnowMobileController {
 	}
 	// REALLY: it has to read snowMobile!
 	// Consistency in naming, but not expecting this...
+	// http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html
 	@PostMapping("/save_snowmobile")
 	public String checkSnowMobile(@Valid SnowMobile snowMobile,
 			BindingResult bindingResult, Model model) {
