@@ -7,8 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.Size;
 
 @Entity
 public class TestReport {
@@ -18,12 +17,14 @@ public class TestReport {
 	private Long id;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "snowmobileid") // Where did this come from??
 	private SnowMobile snowmobile;
 	
 	private String testtype;
-	private String time; // object?
+	
+	// This could be Date/DateTime object (whatever it is in Java)
+	@Size(min=6, max=20, message="{error.time}")
+	private String time;
 	
 	@ManyToOne
 	@JoinColumn(name = "userid")

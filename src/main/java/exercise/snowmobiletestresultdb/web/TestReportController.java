@@ -2,12 +2,17 @@ package exercise.snowmobiletestresultdb.web;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
@@ -35,25 +40,38 @@ public class TestReportController {
 	}
 	// TODO: Method security - TESTER+ADMIN allowed
 	// TODO: Get logged user name from uRepo
-	@RequestMapping("/add_testreport")
+	@GetMapping("/add_testreport")
 	public String addTestReport(Model model, 
 			@AuthenticationPrincipal UserDetails currentUser) {
-		model.addAttribute("testreport", new TestReport());
-		model.addAttribute("all_snowmobiles", smRepo.findAll());
 		
-		// Secure? Probably not...
+		model.addAttribute("testReport", new TestReport());
+		model.addAttribute("all_snowmobiles", smRepo.findAll());
 		User tester = uRepo.findByUsername(currentUser.getUsername());
 		model.addAttribute("firstname", tester.getFirstname());
 		model.addAttribute("lastname", tester.getLastname());
-		
 		return "add_testreport";
-	}	
-	@RequestMapping("/save_testreport")
-	public String saveTestReport(Model model, TestReport testreport,
-			@AuthenticationPrincipal UserDetails currentUser) {
+	}
+	
+	// Validation works, but instead of message, we have an whitelabel error page.
+	// The method arguments have to be in right order!! BindingResult
+	// has to come imediately after @Valid attribute.
+	@PostMapping("/save_testreport")
+	public String saveTestReport(Model model, 
+			@AuthenticationPrincipal UserDetails currentUser,
+			@Valid TestReport testReport,
+			BindingResult bindingResult) {
+	
 		User tester = uRepo.findByUsername(currentUser.getUsername());
-		testreport.setPerson(tester);
-		trRepo.save(testreport);
+		model.addAttribute("firstname", tester.getFirstname());
+		model.addAttribute("lastname", tester.getLastname());
+		model.addAttribute("all_snowmobiles", smRepo.findAll());
+		// Validation works, but instead of message, we get an error page??
+		if (bindingResult.hasErrors()) {
+			return "add_testreport";
+		}
+		
+		testReport.setPerson(tester);
+		trRepo.save(testReport);
 		// TODO: notify user for success would be nice
 		return "redirect:all_testreports";
 	}

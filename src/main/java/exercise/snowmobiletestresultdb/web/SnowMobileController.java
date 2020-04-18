@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
@@ -40,6 +39,7 @@ public class SnowMobileController {
 	@PostMapping("/save_snowmobile")
 	public String checkSnowMobile(@Valid SnowMobile snowMobile,
 			BindingResult bindingResult, Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "add_snowmobile";
 		}
