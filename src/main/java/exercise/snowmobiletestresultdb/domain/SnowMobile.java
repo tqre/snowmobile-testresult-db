@@ -20,7 +20,7 @@ public class SnowMobile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Size(min=2, max=30)
+	@Size(min=2, max=30, message = "{test.message}")
 	private String model;
 	
 	@Min(1920)
