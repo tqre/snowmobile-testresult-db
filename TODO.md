@@ -2,8 +2,10 @@
 
 Priority:
 - user input validation on all forms
-  - users (email...
-  - testreports 
+  - users
+    - everything
+  - testreports:
+    - validation that snowmobile is in database
 
 Important functionality:
 - edit/delete functionality
@@ -20,10 +22,6 @@ Extra functionality:
 Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
 - confirmation on successful operations
-- get tester name automatically from logged in user data when saving a report
-- user details show on individual report view
-- expand user first name + last name on person -field in all_testreports
-- user details show on individual report view
 - don't show report text on snowmobilestatus/viewtests.html -> link to individual tests
   
 Probably not enough time:

@@ -35,13 +35,12 @@
 					th:value="${sm.id}"
 					th:text="${sm.model}">
 			</option>
-			
 		</select>
 		<br>
-		<!-- TODO: Make this a larger field -->
-		<label for="report">Test report:</label><br>
 		<h5 th:if="${#fields.hasErrors('report')}"
 		      th:errors="*{report}">Error</h5>
+		<label for="report">Test report:</label><br>
+		<!-- TODO: Make this a larger field -->
 		<textarea th:field="*{report}"></textarea>
 		<br>
 		<input type="submit" value="Save new testreport"></input>

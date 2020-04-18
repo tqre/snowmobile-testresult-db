@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 
@@ -20,11 +22,13 @@ public class SnowMobile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Pattern(regexp = "[-0-9a-zA-Z ]*",
+			 message = "{error.fancy_characters}")
 	@Size(min=5, max=30, message="{error.model}")
 	private String model;
 	
-	@Min(value=1920, message="{error.too_old}")
-	@Max(value=2025, message="{error.in_the_future}")
+	@Min(value = 1920, message= "{error.too_old}")
+	@Max(value = 2025, message= "{error.in_the_future}")
 	private int year;
 	
 	@Min(value = 400, message="{error.track_width}")
