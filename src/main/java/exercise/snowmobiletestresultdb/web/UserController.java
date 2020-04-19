@@ -1,11 +1,14 @@
 package exercise.snowmobiletestresultdb.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import exercise.snowmobiletestresultdb.domain.User;
@@ -50,23 +53,31 @@ public class UserController {
 	}
 	
 	@RequestMapping("/edit_user")
-	public String editUser(@AuthenticationPrincipal UserDetails currentUser,
-			Model model) {
+	public String editUser(Model model,
+			@AuthenticationPrincipal UserDetails currentUser) {
 		User user = uRepo.findByUsername(currentUser.getUsername());
-		model.addAttribute("modifieduser", user);
+		model.addAttribute("user", user);
 		return "myaccount";
 	}	
 
 	@RequestMapping("/modify_user")
-	public String modifyUser(@AuthenticationPrincipal UserDetails currentUser,
-			User modifieduser) {
+	public String modifyUser(Model model,
+			@AuthenticationPrincipal UserDetails currentUser,
+			@Valid User user,
+			BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			return "myaccount";
+		}
+		
 		User olduserdata = uRepo.findByUsername(currentUser.getUsername());
-		// This is a workaround, we definetely don't want to show this data in clientside
-		modifieduser.setId(olduserdata.getId());
-		modifieduser.setUsername(olduserdata.getUsername());
-		modifieduser.setPwdHash(olduserdata.getPwdHash());
-		modifieduser.setRole(olduserdata.getRole());		
-		uRepo.save(modifieduser);
+		// We definetely don't want to show this data in clientside, so
+		// get it just before saving the new data.
+		user.setId(olduserdata.getId());
+		user.setUsername(olduserdata.getUsername());
+		user.setPwdHash(olduserdata.getPwdHash());
+		user.setRole(olduserdata.getRole());		
+		uRepo.save(user);
 		// TODO: confirmation message
 		// TODO: review data ???
 		return "index";

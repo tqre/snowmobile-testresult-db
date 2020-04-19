@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -25,6 +26,7 @@ public class User {
 	@Column(name = "role", nullable = false)
 	private String role;
 	
+	@Size(min=1, message="{error.firstnamesize}")
 	private String firstname;
 	private String lastname;
 	private String address;
