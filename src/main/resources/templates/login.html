@@ -7,14 +7,12 @@
 	
 </head>
 <body>
-	<!-- TODO: put some text to navbar (unauthenticated view) -->
 	<div th:replace="fragments :: navbar"></div>
-	
-	<h2>Test reporting login page</h2>
+	<h2>Login page</h2>
+	<br>
 	<form th:action="@{/login}" method="post">
 		<label>Username: <input type="text" name="username"/></label>
 		<br>
-		<!-- Make stars appear instead of text -->
 		<label>Password: <input type="password" name="password"/></label>
 		<br>
 		<input type="submit" value="Sign in"/>
