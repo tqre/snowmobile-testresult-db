@@ -41,7 +41,11 @@
 		      th:errors="*{report}">Error</h5>
 		<label for="report">Test report:</label><br>
 		<!-- TODO: Make this a larger field -->
-		<textarea th:field="*{report}"></textarea>
+		<textarea class="shadow-textarea"
+			      th:field="*{report}"
+			      placeholder="Write your test report here"
+	    		  rows="5">
+	    </textarea>
 		<br>
 		<input type="submit" value="Save new testreport"></input>
 	</form>

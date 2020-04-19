@@ -1,17 +1,15 @@
 # TODO
 
 Priority:
-- input validation on all forms
-  - add_user
-  - add_testreports:
-   * validation that snowmobile is in database  
+- input validation on add_testreports:
+   - validation that snowmobile is in database  
 
 Important functionality:
 - edit/delete functionality
-  - cross-references handling, delete something -> wipe database
   - snowmobile editing/deletion
-  - user detail editing/deletion, admin only stuff
+  - user detail editing/deletion, admin only version
   - testreport editing/deletion
+  - cross-reference handling, delete something -> wipe database
 
 Extra functionality:
 - show testreports per user
@@ -22,6 +20,8 @@ Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
 - confirmation on successful operations
 - don't show report text on snowmobilestatus/viewtests.html -> link to individual tests
+- graphics/colors/sounds/smells
+- UX evaluation 
   
 In the far future:
 - real backend SQL server
