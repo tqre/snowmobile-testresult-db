@@ -43,11 +43,18 @@ public class UserController {
 	}
 	
 	@RequestMapping("/save_user")
-	public String saveNewUser(User newuser) {
+	public String saveNewUser(Model model,
+			@Valid User user,
+			BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			return "add_user";
+		}		
+		
 		BCryptPasswordEncoder hasher = new BCryptPasswordEncoder();
-		String hashedUserInput = hasher.encode(newuser.getPwdHash());
-		newuser.setPwdHash(hashedUserInput);
-		uRepo.save(newuser);
+		String hashedUserInput = hasher.encode(user.getPwdHash());
+		user.setPwdHash(hashedUserInput);
+		uRepo.save(user);
 		// TODO: notify user for success would be really nice
 		return "redirect:all_users";
 	}

@@ -20,6 +20,7 @@ public class User {
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	
+	@Size(min=3, message = "{error.username}")
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
 	
@@ -28,7 +29,7 @@ public class User {
 	@Column(name = "role", nullable = false)
 	private String role;
 	
-	@Size(min=1, message= "{error.namesize}")
+	@Size(min=1, message = "{error.namesize}")
 	@Pattern(regexp = "[-a-zåäöA-ZÅÄÖ ]*",
 			 message = "{error.nameletters}")
 	private String firstname;
