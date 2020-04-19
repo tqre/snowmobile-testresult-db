@@ -11,15 +11,14 @@
 <body>
 	<div th:replace="fragments :: navbar"></div>
 	<h1 th:text="${snowmobile.model}"></h1>
-	<table class="table table-striped"
-		   th:each = "test: ${snowmobile.tests}">
+	<table class="table table-striped">
 		<tr>
 			<th>Test</th>
 			<th>Tester</th>
 			<th>Time</th>
 			<th>Report</th>
 		</tr>
-		<tr>
+		<tr th:each = "test: ${snowmobile.tests}">
 			<td th:text = "${test.testtype}" />
 			<td th:text = "${test.person.firstname} + ' ' + ${test.person.lastname}" />
 			<td th:text = "${test.time}" />	
