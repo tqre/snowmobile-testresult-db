@@ -38,9 +38,8 @@
 		</select>
 		<br>
 		<h5 th:if="${#fields.hasErrors('report')}"
-		      th:errors="*{report}">Error</h5>
+		    th:errors="*{report}">Error</h5>
 		<label for="report">Test report:</label><br>
-		<!-- TODO: Make this a larger field -->
 		<textarea class="shadow-textarea"
 			      th:field="*{report}"
 			      placeholder="Write your test report here"
