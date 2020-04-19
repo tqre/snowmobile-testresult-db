@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import exercise.snowmobiletestresultdb.domain.SnowMobile;
 import exercise.snowmobiletestresultdb.domain.SnowMobileRepository;
 import exercise.snowmobiletestresultdb.domain.TestReport;
 import exercise.snowmobiletestresultdb.domain.TestReportRepository;
