@@ -38,7 +38,7 @@ public class UserController {
 	
 	@RequestMapping("/add_user")
 	public String addTestReport(Model model) {
-		model.addAttribute("newuser", new User());
+		model.addAttribute("user", new User());
 		return "add_user";
 	}
 	

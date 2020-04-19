@@ -11,7 +11,7 @@
 	<div th:replace="fragments :: navbar"></div>
 	<h1>Add a new user</h1>
 	<form sec:authorize="hasAuthority('ADMIN')"
-		  th:object="${newuser}" 
+		  th:object="${user}" 
 	      th:action="@{save_user}" method="post" action="#">
 	
 		<label for="username">Username:</label>

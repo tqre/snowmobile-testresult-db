@@ -2,11 +2,9 @@
 
 Priority:
 - input validation on all forms
-  - myaccount
   - add_user
   - add_testreports:
-     * validation that snowmobile is in database
-	
+   * validation that snowmobile is in database  
 
 Important functionality:
 - edit/delete functionality
