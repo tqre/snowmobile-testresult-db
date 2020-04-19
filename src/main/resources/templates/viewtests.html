@@ -17,8 +17,7 @@
 			<td th:text = "${test.testtype}" />
 			<td th:text = "${test.person.firstname} + ' ' + ${test.person.lastname}" />
 			<td th:text = "${test.time}" />	
-			<td>TODO: Link to report</td>
-			<!-- TODO: Link to the report -->
+			<td><a th:href = "@{|/viewreport/${report.id}|}">VIEW</a></td>
 		</tr>
 	</table>
 </body>

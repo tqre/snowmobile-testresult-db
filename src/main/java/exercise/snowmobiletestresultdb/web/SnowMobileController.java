@@ -51,6 +51,7 @@ public class SnowMobileController {
 	@RequestMapping("/snowmobilestatus/{id}")
 	public String getTestsForSnowMobileModel(
 			@PathVariable("id") Long snowMobileId, Model model) {
+		
 		Optional<SnowMobile> snowmobile = smRepo.findById(snowMobileId);
 		// We have to unwrap the Optional type to get our hands on to the object itself
 		model.addAttribute("snowmobile", snowmobile.get());
