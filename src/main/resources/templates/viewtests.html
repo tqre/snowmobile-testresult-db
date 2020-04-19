@@ -14,10 +14,16 @@
 	<table class="table table-striped"
 		   th:each = "test: ${snowmobile.tests}">
 		<tr>
+			<th>Test</th>
+			<th>Tester</th>
+			<th>Time</th>
+			<th>Report</th>
+		</tr>
+		<tr>
 			<td th:text = "${test.testtype}" />
 			<td th:text = "${test.person.firstname} + ' ' + ${test.person.lastname}" />
 			<td th:text = "${test.time}" />	
-			<td><a th:href = "@{|/viewreport/${report.id}|}">VIEW</a></td>
+			<td><a th:href = "@{|/viewreport/${test.id}|}">VIEW FULL REPORT</a></td>
 		</tr>
 	</table>
 </body>

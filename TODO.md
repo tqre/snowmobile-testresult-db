@@ -19,9 +19,7 @@ Extra functionality:
 Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
 - confirmation on successful operations
-- don't show report text on snowmobilestatus/viewtests.html -> link to individual tests
-- graphics/colors/sounds/smells
-- UX evaluation 
+- wrap long texts (report text at least in viewreport)
   
 In the far future:
 - real backend SQL server
