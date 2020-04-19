@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -26,11 +28,24 @@ public class User {
 	@Column(name = "role", nullable = false)
 	private String role;
 	
-	@Size(min=1, message="{error.firstnamesize}")
+	@Size(min=1, message= "{error.namesize}")
+	@Pattern(regexp = "[-a-zåäöA-ZÅÄÖ ]*",
+			 message = "{error.nameletters}")
 	private String firstname;
+	
+	@Size(min=1, message= "{error.namesize}")
+	@Pattern(regexp = "[-a-zåäöA-ZÅÄÖ ]*",
+			 message = "{error.nameletters}")
 	private String lastname;
+	
+	@Size(min=1, message = "{error.address}")
 	private String address;
+
+	@Pattern(regexp = "[-0-9+ ]*",
+			 message = "{error.telephone}")
 	private String telephone;
+	
+	@Email(message = "{error.email}")
 	private String email;
 	
 	@Column(name = "password", nullable = false)

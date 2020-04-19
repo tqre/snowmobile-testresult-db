@@ -22,15 +22,23 @@
 		<br>
 		<label for="lastname">Last name:</label>
 		<input type="text" th:field="*{lastname}"/>
+		<span th:if="${#fields.hasErrors('lastname')}"
+		      th:errors="*{firstname}">Error</span>
 		<br>
 		<label for="address">Address:</label>
 		<input type="text" th:field="*{address}"/>
+		<span th:if="${#fields.hasErrors('address')}"
+		      th:errors="*{address}">Error</span>
 		<br>
 		<label for="telephone">Telephone number:</label>
 		<input type="text" th:field="*{telephone}"/>
+		<span th:if="${#fields.hasErrors('telephone')}"
+		      th:errors="*{telephone}">Error</span>
 		<br>
 		<label for="email">Email:</label>
 		<input type="text" th:field="*{email}"/>
+	    <span th:if="${#fields.hasErrors('email')}"
+		      th:errors="*{email}">Error</span>
 		<br>
 		<br>
 		<input type="submit" value="Update"></input>
