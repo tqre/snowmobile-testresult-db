@@ -24,11 +24,14 @@
 			<td th:text = "${snowmobile.year}" />
 			<td th:text = "${snowmobile.trackWidth}" />
 			<td th:text = "${snowmobile.trackLength}" />
-			<td><a th:href="@{|/snowmobilestatus/${snowmobile.id}|}">TESTS</a></td>		
+			<td><a th:href="@{|/snowmobilestatus/${snowmobile.id}|}">TESTS</a></td>
+			<td sec:authorize="hasAnyAuthority('ADMIN','BUILDER')">
+				<a class="btn btn-primary" th:href = "@{/edit_snowmobile/{id} (id=${snowmobile.id})}">EDIT</a>
+			</td>
 		</tr>
 	</table>
 
-	<button class="btn btn-success" sec:authorize="hasAuthority('ADMIN')"
+	<button class="btn btn-success" sec:authorize="hasAnyAuthority('ADMIN','BUILDER')"
 			onclick="location.href='/add_snowmobile'" type="button">
 	Add a new snowmobile
 	</button>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
+	<title>Edit snowmobile stats</title>
+</head>
+<body>
+	<h1>Edit the snowmobile model</h1>
+
+	<form th:object="${snowMobile}" th:action="@{../save_edited_snowmobile}" method="post" action="#">
+		<input type="hidden" th:field="*{id}"/>
+		<label for="model">Model:</label>
+		<input type="text" th:field="*{model}"/>
+		<span th:if="${#fields.hasErrors('model')}"
+		      th:errors="*{model}">Error</span>
+		<br>
+		<label for="year">Year:</label>
+		<input type="number" th:field="*{year}"/>
+		<span th:if="${#fields.hasErrors('year')}"
+		      th:errors="*{year}">Error</span>
+		<br>
+		<label for="trackWidth">Track width:</label>
+		<input type="number" th:field="*{trackWidth}"/>
+		<span th:if="${#fields.hasErrors('trackWidth')}"
+		      th:errors="*{trackWidth}">Error</span>
+		<br>
+		<label for="trackLength">Track length:</label>
+		<input type="number" th:field="*{trackLength}"/>
+		<span th:if="${#fields.hasErrors('trackLength')}"
+		      th:errors="*{trackLength}">Error</span>
+		<br>
+		<br>
+		<input type="submit" value="Update snowmobile"></input>
+	</form>
+
+</body>
+</html>

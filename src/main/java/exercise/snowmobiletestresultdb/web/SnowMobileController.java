@@ -34,7 +34,7 @@ public class SnowMobileController {
 		return "add_snowmobile";
 	}
 	// REALLY: it has to read snowMobile!
-	// Consistency in naming, but not expecting this...
+	// Namespaces, consistency in naming, but not expecting this kind of stuff to happen
 	// http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html
 	@PostMapping("/save_snowmobile")
 	public String checkSnowMobile(@Valid SnowMobile snowMobile,
@@ -57,4 +57,25 @@ public class SnowMobileController {
 		model.addAttribute("snowmobile", snowmobile.get());
 		return "/viewtests";
 	}
+	// TODO: method level security
+	@RequestMapping("/edit_snowmobile/{id}")
+	public String edit_SnowMobile(Model model,
+			@PathVariable("id") Long snowMobileId) {
+		
+		model.addAttribute("snowMobile", smRepo.findById(snowMobileId));		
+		return "edit_snowmobile";
+	}
+	
+	@RequestMapping("/save_edited_snowmobile")
+	public String checkSnowMobileEdit(@Valid SnowMobile snowMobile,
+			BindingResult bindingResult, Model model) {
+		
+		if (bindingResult.hasErrors()) {
+			return "edit_snowmobile";
+		}
+		smRepo.save(snowMobile);
+		// TODO: notify user for success would be nice
+		return "redirect:all_snowmobiles";
+	}
+	
 }
