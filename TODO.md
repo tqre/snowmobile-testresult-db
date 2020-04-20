@@ -8,14 +8,14 @@ Important functionality:
 - edit/delete functionality
   - snowmobile deletion
   - user editing/deletion, admin only version
-  - testreport editing/deletion
-    - edit timestamp for TestReport class
+  - testreport deletion
   - cross-reference handling, delete something -> wipe database
 
 Extra functionality:
 - show testreports per user
 - my account: password change
-- tester can edit his own tests
+- tester can edit only his own tests
+- edit timestamp if a report was edited
 
 Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
