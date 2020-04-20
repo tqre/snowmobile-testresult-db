@@ -87,4 +87,44 @@ public class TestReportController {
 		model.addAttribute("testreport", testreport.get());
 		return "/viewreport";
 	}
+	
+	// TODO: method level security
+	@RequestMapping("/edit_testreport/{id}")
+	public String edit_TestReport(Model model,
+			@AuthenticationPrincipal UserDetails currentUser,
+			@PathVariable("id") Long testReportId) {
+		
+		Optional<TestReport> testReport = trRepo.findById(testReportId);
+		model.addAttribute("testReport", testReport.get());		
+		
+		User tester = uRepo.findByUsername(currentUser.getUsername());
+		model.addAttribute("firstname", tester.getFirstname());
+		model.addAttribute("lastname", tester.getLastname());
+		
+		return "edit_testreport";
+	}
+	
+	@RequestMapping("/save_edited_testreport")
+	public String checkSnowMobileEdit(Model model,
+			@AuthenticationPrincipal UserDetails currentUser,
+			@Valid TestReport testReport,
+			BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			return "edit_testreport";
+		}
+		Optional<TestReport> oldreport = trRepo.findById(testReport.getId());
+		TestReport oldreport_unwrapped = oldreport.get();
+		
+		// Editing user can be saved from this variable
+		// User user = uRepo.findByUsername(currentUser.getUsername());
+		// This keeps the original report maker
+		testReport.setPerson(oldreport_unwrapped.getPerson()); 
+		testReport.setTime(oldreport_unwrapped.getTime());
+		testReport.setSnowMobile(oldreport_unwrapped.getSnowMobile());
+		
+		trRepo.save(testReport);
+		// TODO: notify user for success would be nice
+		return "redirect:all_testreports";
+	}	
 }

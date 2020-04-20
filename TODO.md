@@ -6,9 +6,10 @@ Priority:
 
 Important functionality:
 - edit/delete functionality
-  - snowmobile editing/deletion
-  - user detail editing/deletion, admin only version
+  - snowmobile deletion
+  - user editing/deletion, admin only version
   - testreport editing/deletion
+    - edit timestamp for TestReport class
   - cross-reference handling, delete something -> wipe database
 
 Extra functionality:

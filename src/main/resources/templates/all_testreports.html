@@ -25,6 +25,9 @@
 			<td th:text = "${report.time}" />
 			<td th:text = "${report.person.firstname} + ' ' + ${report.person.lastname}" />
 			<td><a th:href = "@{|/viewreport/${report.id}|}">VIEW</a></td>
+			<td sec:authorize="hasAnyAuthority('ADMIN','TESTER')">
+				<a class="btn btn-primary" th:href = "@{/edit_testreport/{id} (id=${report.id})}">EDIT</a>
+			</td>
 		</tr>
 	</table>
 	<button class="btn btn-success"

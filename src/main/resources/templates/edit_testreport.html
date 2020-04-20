@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}">
+	<title>Edit testreport</title>
+</head>
+
+<body>
+	<div th:replace="fragments :: navbar"></div>
+	<h1>Add a new testreport</h1>
+	<form th:object="${testReport}" 
+	      th:action="@{../save_edited_testreport}" method="post" action="#">	
+	    <input type="hidden" th:field="*{id}"/>
+	    <h3 th:text="'Tester: ' + ${firstname} + ' ' + ${lastname}"></h3>
+		<!-- hope this works... -->
+		<h4 th:text="'Model: ' + ${testReport.snowMobile.model}"></h4>
+		<h4 th:test="'Original time of test:' + *{time}"></h4>
+		<br>
+		<label for="testtype">Test type:</label>
+		<select th:field="*{testtype}">
+			<option value="Smoke test">Smoke test</option>
+			<option value="Durability test">Durability test</option>
+			<option value="Consumption test">Consumption test</option>
+			<option value="Safety test">Dummy proofing</option>
+			<option value="EMP test">EMP test</option>
+		</select>
+		<span th:if="${#fields.hasErrors('testtype')}"
+		      th:errors="*{testtype}">Error</span>
+		<br>
+		<h5 th:if="${#fields.hasErrors('report')}"
+		    th:errors="*{report}">Error</h5>
+		<label for="report">Test report:</label><br>
+		<textarea class="shadow-textarea"
+			      th:field="*{report}"
+			      placeholder="Write your test report here"
+	    		  rows="5">
+	    </textarea>
+		<br>
+		<input type="submit" value="Update report"></input>
+	</form>
+</body>
+</html>
