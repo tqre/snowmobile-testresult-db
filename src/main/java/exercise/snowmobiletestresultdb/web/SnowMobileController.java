@@ -80,9 +80,14 @@ public class SnowMobileController {
 		return "redirect:all_snowmobiles";
 	}
 	
+	// Idea: this function could just hide the vehicle from the view
+	// and select lists, and keep everything in the database. Now
+	// we are just brutally deleting it along with all tests.
 	@RequestMapping("/decommission_snowmobile/{id}")
-	public String decommissionSnowMobile() {
+	public String decommissionSnowMobile(
+			@PathVariable("id") Long snowMobileId) {
 		
-		return "";		
+		smRepo.deleteById(snowMobileId);
+		return "redirect:../all_snowmobiles";
 	}
 }

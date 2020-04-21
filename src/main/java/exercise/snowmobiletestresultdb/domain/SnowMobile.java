@@ -91,13 +91,6 @@ public class SnowMobile {
 	}
 
 	public List<TestReport> getTests() {
-		/*
-		if (this.tests.get(0).equals(null)) {
-			List<TestReport> notests = new ArrayList<TestReport>();
-			notests.add(new TestReport());
-			return notests;
-		}
-		*/
 		return tests;
 	}
 
