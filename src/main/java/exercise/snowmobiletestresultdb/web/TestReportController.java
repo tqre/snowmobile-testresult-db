@@ -88,6 +88,14 @@ public class TestReportController {
 		return "/viewreport";
 	}
 	
+	@RequestMapping("/delete_testreport/{id}")
+	public String deleteTestReport(Model model,
+			@PathVariable("id") Long testReportId) {
+		
+		trRepo.deleteById(testReportId);
+		return "/all_snowmobiles";
+	}
+	
 	// TODO: method level security
 	@RequestMapping("/edit_testreport/{id}")
 	public String edit_TestReport(Model model,
@@ -113,6 +121,7 @@ public class TestReportController {
 		if (bindingResult.hasErrors()) {
 			return "edit_testreport";
 		}
+		
 		Optional<TestReport> oldreport = trRepo.findById(testReport.getId());
 		TestReport oldreport_unwrapped = oldreport.get();
 		
@@ -126,5 +135,5 @@ public class TestReportController {
 		trRepo.save(testReport);
 		// TODO: notify user for success would be nice
 		return "redirect:all_testreports";
-	}	
+	}
 }

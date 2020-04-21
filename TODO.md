@@ -9,7 +9,9 @@ Important functionality:
   - snowmobile deletion
   - user editing/deletion, admin only version
   - testreport deletion
-  - cross-reference handling, delete something -> wipe database
+  - cross-reference handling, delete something -> wipe database?
+- editing the testreport makes more sense in the full view
+  - at least put the deletion there
 
 Extra functionality:
 - show testreports per user

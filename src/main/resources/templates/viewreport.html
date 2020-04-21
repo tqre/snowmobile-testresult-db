@@ -18,5 +18,15 @@
 	<h5 th:text="${testreport.person.firstname} + ' ' + ${testreport.person.lastname}"></h5>
 	<p th:text="${testreport.person.telephone}"></p>
 	<p th:text="${testreport.person.email}"></p>
+	<a class="btn btn-info"
+	   style="float:left"
+	   th:href = "@{/all_testreports}">
+	   ALL TESTREPORTS
+	</a>
+	<a class="btn btn-danger" 
+	   style="float:right"
+	   sec:authorize="hasAnyAuthority('ADMIN','TESTER')"
+	   th:href = "@{/delete_testreport/{id} (id=${testreport.id})}">
+	DELETE REPORT</a>
 </body>
 </html>
