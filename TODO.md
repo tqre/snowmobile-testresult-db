@@ -1,8 +1,6 @@
 # TODO
 
-Priority:
-- deploy and test on Heroku
-- package for submission 
+Project is not actively worked on anymore.
 
 Extra functionality:
 - user editing/deletion, admin version
