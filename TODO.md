@@ -8,10 +8,8 @@ Important functionality:
 - edit/delete functionality
   - snowmobile deletion
   - user editing/deletion, admin only version
-  - testreport deletion
   - cross-reference handling, delete something -> wipe database?
 - editing the testreport makes more sense in the full view
-  - at least put the deletion there
 
 Extra functionality:
 - show testreports per user
@@ -22,11 +20,13 @@ Extra functionality:
 Cosmetics/user convenience:
 - forms look cluttered, align them, layout&colour stuff
 - confirmation on successful operations
-- wrap long texts (report text at least in viewreport)
+- wrap long continuous texts in viewreport
+- editing the testreport makes more sense in the full view
   
 In the far future:
 - real backend SQL server
 - more detailed access control scheme
   - role enumeration, role class
 - user registration + email verification
+
 https://www.baeldung.com/registration-with-spring-mvc-and-spring-security  

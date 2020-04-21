@@ -93,7 +93,7 @@ public class TestReportController {
 			@PathVariable("id") Long testReportId) {
 		
 		trRepo.deleteById(testReportId);
-		return "/all_snowmobiles";
+		return "redirect:../all_testreports";
 	}
 	
 	// TODO: method level security

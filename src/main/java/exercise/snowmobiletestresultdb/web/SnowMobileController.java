@@ -57,12 +57,14 @@ public class SnowMobileController {
 		model.addAttribute("snowmobile", snowmobile.get());
 		return "/viewtests";
 	}
+	
 	// TODO: method level security
 	@RequestMapping("/edit_snowmobile/{id}")
 	public String edit_SnowMobile(Model model,
 			@PathVariable("id") Long snowMobileId) {
 		
-		model.addAttribute("snowMobile", smRepo.findById(snowMobileId));		
+		Optional<SnowMobile> snowmobile = smRepo.findById(snowMobileId);		
+		model.addAttribute("snowMobile", snowmobile.get());
 		return "edit_snowmobile";
 	}
 	
@@ -78,4 +80,9 @@ public class SnowMobileController {
 		return "redirect:all_snowmobiles";
 	}
 	
+	@RequestMapping("/decommission_snowmobile/{id}")
+	public String decommissionSnowMobile() {
+		
+		return "";		
+	}
 }

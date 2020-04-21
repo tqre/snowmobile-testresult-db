@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}">
@@ -32,7 +33,11 @@
 		<br>
 		<br>
 		<input type="submit" value="Update snowmobile"></input>
-	</form>
-
+		<a class="btn btn-danger" 
+		   style="float:right"
+		   sec:authorize="hasAnyAuthority('ADMIN','BUILDER')"
+		   th:href = "@{/decommission_snowmobile/{id} (id=${snowMobile.id})}">
+		   DECOMMISSION</a>
+		</form>
 </body>
 </html>
