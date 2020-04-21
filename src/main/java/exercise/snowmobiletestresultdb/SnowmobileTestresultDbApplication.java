@@ -54,17 +54,17 @@ public class SnowmobileTestresultDbApplication {
 			
 			// Users
 			User u1 = new User("admin", "ADMIN",
-					"Admin","Strator","SysAdmin street 1337","016-394595","sysadmin@company.com",
-					"$2b$12$oDcqQft.Zz9IjNEbY5Hso.HAjcVB/dWfWfDD8IxDDGMSJ2lnPcZMK");
+					"Admin","Strator","SysAdmin basement 1337","016-394595","sysadmin@company.com",
+					"$2b$12$C9sNsGKLZSM5uNA2PVrL4u4AZU1vWd1N8qcx4ZakigxXqzPYi/38a");
 			User u2 = new User("tester", "TESTER",
 					"Ted","Tester","Testgatan 123","040000000","ted.tester@company.com",
-					"$2b$12$EftI0F11VetixKl96cDRRuh3rVHdyyVBNUNQ0TZHK.OKdyZbyOeP.");
+					"$2b$12$HEv3JT2vKaiA23FHaLujDO/750ATeV6wD49YvHd67n9zEolO24nvq");
 			User u3 = new User("bigboss", "VIEWER",
-					"Fred","Foreman","Boss street 1","123123123","bigboss@company.com",
-					"$2b$12$EftI0F11VetixKl96cDRRuh3rVHdyyVBNUNQ0TZHK.OKdyZbyOeP.");
+					"Fred","Foreman","Boss street number one","+8816 3-1337 8055","bigboss@company.com",
+					"$2b$12$oZwaWtIJqdZMWjdYD8xi5eF9ovRj0J4dmcORa036TqoZbSIs/oJh.");
 			User u4 = new User("builder", "BUILDER",
-					"Bertha","Builder","Puistokatu 4","4812","bbuilder@company.com",
-					"$2b$12$EftI0F11VetixKl96cDRRuh3rVHdyyVBNUNQ0TZHK.OKdyZbyOeP.");
+					"Bertha","Builder","Puistokatu 4","0909090909","bbuilder@company.com",
+					"$2b$12$2rtfx4lMquh/4w8AJAl5MOIgqxp2AEDFybxJsKJs4kepnl2IvbEzi");
 			userRepo.save(u1);			
 			userRepo.save(u2);
 			userRepo.save(u3);
